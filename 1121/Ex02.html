@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            background-color: #00FFFF;
+            text-align: center;
+            line-height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="eventZone"></div>
+<button id="btn" disabled>click me</button>
+<span id="msg">button status: normal</span>
+<h4>mouse position <span id="pos"> </span></h4>
+</body>
+</html>
+
+<script>
+    let mouseZone = document.querySelector("#eventZone");
+
+    const mouseIn = () => {
+        mouseZone.innerHTML = '<b>Mouse Enter</b>';
+        mouseZone.style.backgroundColor = "#FF0000";
+
+        // document.querySelector("#btn").disabled = true;
+        // document.querySelector("#btn").style.display = "none";
+        document.querySelector("#btn").style.visibility = "hidden";
+    }
+
+    mouseZone.addEventListener("mouseout", function () {
+        mouseZone.innerHTML = '<b>Mouse Out</b>';
+        mouseZone.style.backgroundColor = "#00FFFF";
+
+        // document.querySelector("#btn").disabled = false;
+        // document.querySelector("#btn").style.display = "inline";
+        document.querySelector("#btn").style.visibility = "visible";
+    });
+
+    mouseZone.addEventListener("mouseenter", mouseIn);
+</script>
