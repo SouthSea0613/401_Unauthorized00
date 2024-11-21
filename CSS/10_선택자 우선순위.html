@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        color: red !important;
+      } /* 무한메달*/
+      #color_yellow {
+        color: yellow;
+      } /* 금메달*/
+      .color_green {
+        color: green;
+      } /* 은메달*/
+      div {
+        color: blue;
+      } /* 동메달*/
+      * {
+        color: darkblue;
+      } /* 참가메달*/
+      body {
+        color: violet;
+      } /* 상속은 메달없음*/
+    </style>
+  </head>
+  <body>
+    <!-- 점수가 높은 선언이 우선함
+  점수가 같으면 가장 마지막에 해석된 선언이 우선함 -->
+    <div id="color_yellow" class="color_green" style="color: orange">
+      <!--인라인: 특메달-->
+      Hello world!
+    </div>
+  </body>
+</html>
