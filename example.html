@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .number {
+          width: 20px;
+          height: 20px;
+          float: left;
+          border: 1px solid black;
+          margin: 1px;
+          text-align: center;
+        }
+      </style>
+    </head>
+    <body>
+      <h2>로또 추출기</h2>
+      <div class="number">0</div>
+      <div class="number">0</div>
+      <div class="number">0</div>
+      <div class="number">0</div>
+      <div class="number">0</div>
+      <div class="number">0</div>
+      <button id="btn">추출</button>
+
+
+<script>
+//엘리먼트 가져오기
+let btn = document.getElementById('btn');
+
+//let numbers = document.getElementsByClassName('number');
+let numbers = document.querySelectorAll('.number');
+
+let lotto = [];
+let i = 0;
+console.dir(numbers[0]);
+
+btn.addEventListener('click', result);
+
+function result() {
+  if (i > 5) {
+    alert('1줄 완성! -1,000원.');
+    const li = document.createElement('li');
+    // lotto 정렬
+    lotto.sort(function (a, b) {
+        return a - b;
+    });
+    for(let i=0; i<6; i++){
+        li.textContent += lotto[i] + ' '
+    }
+    document.querySelector('body').appendChild(li);
+    for(let i=0; i<6; i++){
+        numbers[i].innerText = 0;
+    }
+    lotto = [];
+    i = 0;
+  } else {
+    lotto[i] = randomRange(45); //중간 구간
+    numbers[i].innerHTML = lotto[i];
+    i++;
+    console.log(lotto);
+  }
+}
+
+function randomRange(lastNum) { //재귀함수(recusive)
+  //랜덤수 추출 
+  let rnd = Math.floor(Math.random() * lastNum) + 1;
+  //0.0~0.9 추출
+  //최대 수를 구하여 곱한다.(끝 영역) - 1부터 시작이 아닐수 있으므로... 시작값을 뺀다.
+  //최소 수를 더한다.(시작 영역)
+
+  //중복검사
+  for (let j = 0; j < i; j++) {
+    console.log(lotto[j] + ' == ' + rnd);
+    if (lotto[j] == rnd) {
+      console.log('중복');
+      return randomRange(lastNum);  //재귀호출
+    }
+  }
+  console.log('pass');
+  return rnd;
+}
+
+//java
+//   btn.addEventListener('click', function () {
+//     if (i > 5) {
+//       alert('더이상 넣을 수 없습니다.');
+//       for (let number of numbers) {
+//         number.innerHTML = '';
+//       }
+//       i = 0;
+//       lotto = [];
+//     } else {
+//       lotto[i] = Math.floor(Math.random() * 45) + 1;
+//       console.log(lotto[i]);
+//       numbers[i].innerHTML = lotto[i]; //1
+//       i++; //1-->2
+//       console.log(lotto.length + '개');
+//       for (let j = 0; j < i - 1; j++) {
+//         console.log(i - 1, j);
+//         if (lotto[i - 1] == lotto[j]) {
+//           console.log('중복값 발생');
+//           i--; //2-->1
+//           break;
+//         }
+//       }
+//     }
+//   });
+      </script>
+    </body>
+  </html>
