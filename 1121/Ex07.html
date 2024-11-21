@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+
+    <body>
+        <button>Strike</button>
+        <button>Ball</button>
+        <button>재시작</button>
+        <br />
+        S:<b>0</b><br />
+        B:<b>0</b><br />
+        O:<b>0</b><br />
+    </body>
+</html>
+
+<script>
+    const buttons = document.querySelectorAll('button');
+    const bs = document.querySelectorAll('b');
+
+    buttons[2].style.display = 'none';
+
+    buttons[0].addEventListener('click', function () {
+        if (bs[0].innerText === '2') {
+            bs[0].innerText = 0;
+            bs[1].innerText = 0;
+            bs[2].innerText = parseInt(bs[2].innerText) + 1;
+
+            if(bs[2].innerText === '3') {
+                alert('삼진아웃');
+                buttons[0].disabled = true;
+                buttons[1].disabled = true;
+                buttons[2].style.display = 'inline';
+            }
+        }
+        else {
+            bs[0].innerText = parseInt(bs[0].innerText) + 1;
+        }
+    });
+
+    buttons[1].addEventListener('click', function () {
+        if (bs[1].innerText === '3') {
+            bs[0].innerText = 0;
+            bs[1].innerText = 0;
+        }
+        else{
+            bs[1].innerText = parseInt(bs[1].innerText) + 1;
+        }
+    });
+
+    buttons[2].addEventListener('click', function () {
+        buttons[2].style.display = 'none';
+        buttons[0].disabled = false;
+        buttons[1].disabled = false;
+        bs[0].innerText = 0;
+        bs[1].innerText = 0;
+        bs[2].innerText = 0;
+    });
+</script>

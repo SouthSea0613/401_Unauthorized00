@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<script>
+    onload = () => {
+        document.loginForm.addEventListener('submit', function (e) {
+            for (let i = 0; i < this.length - 3; i++) {
+                if (this[i].value === '') {
+                    alert(`${this[i].id} is null`);
+                    this[i].focus();
+                    e.preventDefault();
+                    return;
+                }
+            }
+        });
+    }
+
+    function check1(url) {
+        let loginForm = document.loginForm;
+
+        let idElement = document.querySelector('#id');
+        let pwElement = document.querySelector('#pw');
+
+        if (idElement.value === '') {
+            alert('아이디 입력바람');
+            idElement.focus();
+        }
+        else if (pwElement.value === '') {
+            alert('비밀번호 입력바람');
+            pwElement.focus();
+        }
+        else {
+            loginForm.action = url; // 이동할 url등록
+            loginForm.submit();
+        }
+    }
+
+    function check2() {
+        let form = document.loginForm;
+        for (let i = 0; i < form.length - 3; i++) {
+            if (form[i].value === '') {
+                alert(`${form[i].id} is null`);
+                form[i].focus();
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+
+    <body>
+<!--    <form name="loginForm" action="login" onsubmit="return check2();">-->
+        <form name="loginForm">
+            아이디: <input id="id" type="text" name="id" value="aaa" /><br />
+            비번: <input id="pw" type="password" name="pw" /><br />
+
+            <input type="submit" value="submit" />
+            <button>로그인</button>
+
+            <input id="normalBtn" type="button" value="로그인 버튼" onclick="check1('login')" />
+<!--            <input id="normalBtn" type="button" value="회원가입 버튼" onclick="check1('join')" />-->
+        </form>
+    </body>
+</html>

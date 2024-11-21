@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<script>
+    let array = [];
+
+    function input() {
+        array.push(parseInt(document.querySelector("#intBox").value));
+        document.querySelector("#intBox").value = "";
+    }
+
+    function sumArr() {
+        let sum = 0;
+        for (let i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        document.querySelector("span").innerHTML = sum;
+    }
+
+    function output() {
+       alert(array);
+       array = [];
+    }
+</script>
+
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    </head>
+
+    <body>
+        정수입력 : <input type="text" id="intBox" onchange="input()" placeholder="정수를 배열에 저장" /><br />
+        <input type="button" onclick="sumArr()" value="sumArr" />
+        <input type="button" onclick="output()" value="output" />
+        <br />
+        총점은 <span>0</span>점 입니다.
+    </body>
+</html>
