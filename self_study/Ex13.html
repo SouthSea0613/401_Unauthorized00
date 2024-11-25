@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="../JS/jquery-3.7.1.min.js"></script>
+    </head>
+
+    <body>
+        <!--예제3  -->
+        <form>
+            이름: <input type="text"><br>
+            국어: <input type="text"><br>
+            영어: <input type="text"><br>
+            수학: <input type="text"><br>
+            <input type="button" value="성적 추가">
+        </form>
+        <div id="result" style="border:1px solid red;height:400px;width:400px">
+            여기에 테이블 출력할것.
+            <table border=1 width=400>
+                <tr>
+                    <th>이름</th>
+                    <th>국어</th>
+                    <th>영어</th>
+                    <th>수학</th>
+                    <th>총점</th>
+                    <th>평균</th>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
+
+<script>
+    $('input[type="button"]').click(() => {
+        let list = [];
+        for (let i = 0; i < 4; i++) {
+            list.push($($('input[type="text"]')[i]).val());
+        }
+
+        list.push(parseInt(list[1]) + parseInt(list[2]) + parseInt(list[3]));
+        list.push(parseInt(list[4]) / 3);
+
+        let tr = document.createElement('tr');
+        for (let i = 0; i < list.length; i++) {
+            let th = document.createElement('th');
+            th.innerText = list[i];
+            tr.appendChild(th);
+        }
+        document.querySelector('table').appendChild(tr);
+    });
+</script>
