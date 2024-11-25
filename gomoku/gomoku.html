@@ -1,10 +1,304 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <style>
+        .board {
+            display: inline-block;
+            background: #DCB35C;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .row {
+            display: flex;
+        }
+        .cell {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .cell::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: #000;
+            top: 50%;
+        }
+        .cell::after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            background: #000;
+            left: 50%;
+        }
+        .stone {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .black {
+            background: #000;
+            box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+        }
+        .white {
+            background: #fff;
+            box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+        }
+        .status {
+            margin: 20px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .restart {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-$END$
+<div id="game">
+    <div class="status"></div>
+    <div class="board"></div>
+    <button class="restart" onclick="initGame()">새 게임</button>
+</div>
+
+<script>
+    const BOARD_SIZE = 15;
+    const EMPTY = 0;
+    const BLACK = 1;
+    const WHITE = 2;
+    let board = [];
+    let gameOver = false;
+    let currentPlayer = BLACK; // 플레이어는 항상 흑돌
+
+    // 보드 초기화
+    function initBoard() {
+        board = Array(BOARD_SIZE).fill().map(() => Array(BOARD_SIZE).fill(EMPTY));
+    }
+
+    // 게임 초기화
+    function initGame() {
+        initBoard();
+        gameOver = false;
+        currentPlayer = BLACK;
+        renderBoard();
+        updateStatus("당신의 차례입니다 (흑돌)");
+    }
+
+    // 게임 상태 업데이트
+    function updateStatus(message) {
+        document.querySelector('.status').textContent = message;
+    }
+
+    // 보드 렌더링
+    function renderBoard() {
+        const boardElement = document.querySelector('.board');
+        boardElement.innerHTML = '';
+
+        for (let i = 0; i < BOARD_SIZE; i++) {
+            const row = document.createElement('div');
+            row.className = 'row';
+
+            for (let j = 0; j < BOARD_SIZE; j++) {
+                const cell = document.createElement('div');
+                cell.className = 'cell';
+                cell.onclick = () => handleClick(i, j);
+
+                if (board[i][j] !== EMPTY) {
+                    const stone = document.createElement('div');
+                    stone.className = `stone ${board[i][j] === BLACK ? 'black' : 'white'}`;
+                    cell.appendChild(stone);
+                }
+
+                row.appendChild(cell);
+            }
+
+            boardElement.appendChild(row);
+        }
+    }
+
+    // 클릭 핸들러
+    function handleClick(row, col) {
+        if (gameOver || board[row][col] !== EMPTY || currentPlayer !== BLACK) return;
+
+        makeMove(row, col, BLACK);
+
+        if (checkWin(row, col, BLACK)) {
+            gameOver = true;
+            updateStatus("축하합니다! 당신이 이겼습니다!");
+            return;
+        }
+
+        // AI 차례
+        currentPlayer = WHITE;
+        updateStatus("AI가 생각중입니다...");
+
+        setTimeout(() => {
+            const aiMove = findBestMove();
+            makeMove(aiMove.row, aiMove.col, WHITE);
+
+            if (checkWin(aiMove.row, aiMove.col, WHITE)) {
+                gameOver = true;
+                updateStatus("AI가 이겼습니다!");
+                return;
+            }
+
+            currentPlayer = BLACK;
+            updateStatus("당신의 차례입니다 (흑돌)");
+        }, 500);
+    }
+
+    // 돌 놓기
+    function makeMove(row, col, player) {
+        board[row][col] = player;
+        renderBoard();
+    }
+
+    // 승리 체크
+    function checkWin(row, col, player) {
+        const directions = [
+            [[0,1], [0,-1]], // 가로
+            [[1,0], [-1,0]], // 세로
+            [[1,1], [-1,-1]], // 대각선 ↘
+            [[1,-1], [-1,1]]  // 대각선 ↙
+        ];
+
+        for (let dir of directions) {
+            let count = 1;
+
+            for (let [dx, dy] of dir) {
+                let r = row + dx;
+                let c = col + dy;
+
+                while (
+                    r >= 0 && r < BOARD_SIZE &&
+                    c >= 0 && c < BOARD_SIZE &&
+                    board[r][c] === player
+                    ) {
+                    count++;
+                    r += dx;
+                    c += dy;
+                }
+            }
+
+            if (count >= 5) return true;
+        }
+
+        return false;
+    }
+
+    // AI: 위치 평가
+    function evaluatePosition(row, col, player) {
+        let score = 0;
+        const opponent = player === BLACK ? WHITE : BLACK;
+        const directions = [
+            [[0,1], [0,-1]], // 가로
+            [[1,0], [-1,0]], // 세로
+            [[1,1], [-1,-1]], // 대각선 ↘
+            [[1,-1], [-1,1]]  // 대각선 ↙
+        ];
+
+        for (let dir of directions) {
+            let playerCount = 1;
+            let openEnds = 0;
+
+            for (let [dx, dy] of dir) {
+                let r = row + dx;
+                let c = col + dy;
+                let blocked = false;
+
+                while (
+                    r >= 0 && r < BOARD_SIZE &&
+                    c >= 0 && c < BOARD_SIZE &&
+                    !blocked
+                    ) {
+                    if (board[r][c] === player) {
+                        playerCount++;
+                    } else if (board[r][c] === EMPTY) {
+                        openEnds++;
+                        blocked = true;
+                    } else {
+                        blocked = true;
+                    }
+                    r += dx;
+                    c += dy;
+                }
+            }
+
+            // 점수 계산
+            if (playerCount >= 5) score += 100000;
+            else if (playerCount === 4 && openEnds === 2) score += 10000;
+            else if (playerCount === 4 && openEnds === 1) score += 1000;
+            else if (playerCount === 3 && openEnds === 2) score += 100;
+            else if (playerCount === 3 && openEnds === 1) score += 10;
+            else if (playerCount === 2 && openEnds === 2) score += 5;
+        }
+
+        return score;
+    }
+
+    // AI: 최적의 수 찾기
+    function findBestMove() {
+        let bestScore = -Infinity;
+        let bestMove = { row: -1, col: -1 };
+
+        // 현재 돌이 있는 위치 주변을 우선적으로 탐색
+        let candidates = [];
+        for (let i = 0; i < BOARD_SIZE; i++) {
+            for (let j = 0; j < BOARD_SIZE; j++) {
+                if (board[i][j] !== EMPTY) {
+                    for (let di = -1; di <= 1; di++) {
+                        for (let dj = -1; dj <= 1; dj++) {
+                            const ni = i + di;
+                            const nj = j + dj;
+                            if (
+                                ni >= 0 && ni < BOARD_SIZE &&
+                                nj >= 0 && nj < BOARD_SIZE &&
+                                board[ni][nj] === EMPTY
+                            ) {
+                                candidates.push({row: ni, col: nj});
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 후보 위치가 없으면 중앙 근처에 둠
+        if (candidates.length === 0) {
+            const center = Math.floor(BOARD_SIZE / 2);
+            return { row: center, col: center };
+        }
+
+        // 각 후보 위치 평가
+        for (let move of candidates) {
+            board[move.row][move.col] = WHITE;
+            const score = evaluatePosition(move.row, move.col, WHITE);
+            board[move.row][move.col] = EMPTY;
+
+            if (score > bestScore) {
+                bestScore = score;
+                bestMove = move;
+            }
+        }
+
+        return bestMove;
+    }
+
+    // 게임 시작
+    initGame();
+</script>
 </body>
 </html>
