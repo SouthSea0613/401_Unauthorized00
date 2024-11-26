@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="../JS/jquery-3.7.1.min.js"></script>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background-color: #59b1f6;
+                margin: 10px;
+                float: left;
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <button id="view">보이기</button>
+        <button id="on_off">toggle</button>
+        <div id="1">click1</div>
+        <div id="2">click2</div>
+        <div id="3">click3</div>
+        <div id="4">click4</div>
+        <div id="5">click5</div>
+    </body>
+</html>
+
+<script>
+    $('#view').click(() => {
+        $('div').first().show('fast', function showNext() {
+            $(this).next('div').show('fast', showNext);
+        });
+    });
+
+    $('#on_off').click(() => {
+        $('div').last().hide('fast', function hideNext() {
+            $(this).prev('div').hide('fast', hideNext);
+        });
+    });
+</script>

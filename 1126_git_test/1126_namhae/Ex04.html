@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="../JS/jquery-3.7.1.min.js"></script>
+        <style>
+            div {
+                width: 100px;
+                height: 30px;
+                text-align: center;
+                background-color: #59b1f6;
+            }
+        </style>
+    </head>
+
+    <body>
+        <p>list 01</p>
+        <p>list 02</p>
+        <p>list 03</p>
+        <p>list 04</p>
+        <p>list 05</p>
+        <input id="on_off1" type="button" value="off">
+        <hr/>
+        <div>메뉴</div>
+        <ul>
+            <li>list01</li>
+            <li>list02</li>
+            <li>list03</li>
+            <li>list04</li>
+            <li>list05</li>
+        </ul>
+        <input id="on_off2" type="button" value="on">
+    </body>
+</html>
+
+<script>
+    $(() => {
+        $('#on_off1').click(() => {
+            $('p').toggle();
+            if ($('#on_off1').val() == 'off') {
+                $('#on_off1').val('on');
+            }
+            else {
+                $('#on_off1').val('off');
+            }
+        });
+
+        $('ul').hide();
+        $('div').hover(() => {
+                $('ul').show(1000);
+            },
+            () => {
+                $('ul').hide(1000);
+            }
+        );
+
+        $('#on_off2').click(() => {
+            // $('ul').toggle();
+            if ($('#on_off2').val() == 'off') {
+                $('#on_off2').val('on');
+                $('ul').css('visibility', 'visible');
+            } else {
+                $('#on_off2').val('off');
+                $('ul').css('visibility', 'hidden');
+            }
+        });
+    });
+</script>
