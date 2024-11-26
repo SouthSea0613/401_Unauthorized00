@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>onononon</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  </head>
+  <body>
+    <div style="border: 1px solid seagreen; width: 100px; height: 100px"></div>
+    <button id="btn">on</button>
+
+    <script>
+      $("#btn").click(function () {
+        // $("div")[0].appendChild(document.createElement("button"))  < 이건 자바스크립트고
+        $("div").append("<button>click</button>")
+      })
+
+      // on을 굳이 사용하고 싶어?????!!!!!
+      // body태그 랜더링 후 생성한 엘리먼트에 이벤트 등록은 on으로 해...
+      //  ↓넓은 선택자        ↓좁은 선택자
+      $("div").on("click", "button", function () {
+        alert("대박이지?")
+      })
+    </script>
+  </body>
+</html>

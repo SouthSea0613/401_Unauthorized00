@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트트트트트트트</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        margin-right: 7px;
+        text-align: center;
+      }
+      #mousezone {
+        background-color: azure;
+        float: left;
+      }
+      #overzone {
+        background-color: lightcyan;
+        float: left;
+      }
+    </style>
+    <script>
+      $(function () {
+        console.log($("input"))
+        $("input").focus(function () {
+          console.log(this) // 자바스크립트 객체
+          console.log($(this)) // 자바스크립트 객체
+          $(this).css("background-color", "lightgrey").css("color", "gray")
+        })
+
+        $("input").blur(function () {
+          $(this).css("background-color", "").css("color", "")
+        })
+
+        $("p").click(function (evt) {
+          // console.log(evt);
+          $(this).css("color", "darkgreen")
+        })
+
+        $("#mousezone").mouseenter(function () {
+          $(this).text(" 드루와").css("background-color", "lightgrey")
+        })
+
+        $("#mousezone").mouseleave(function () {
+          $(this).text("잘가...").css("background-color", "beige")
+        })
+
+        // 호버는 콜백을 2개 받을 수 있음
+        $("#overzone").hover(
+          function () {
+            $(this).text("안녕?")
+          },
+          function () {
+            $(this).text("잘가 바이바이")
+          }
+        )
+      })
+    </script>
+  </head>
+  <body>
+    <button id="btn">이벤트 제거</button>
+    <p id="1">클릭하면 글자 색상이 바뀌어요~!</p>
+    <p id="2">클릭하면 글자 색상이 바뀌어요~!</p>
+    <p id="3">클릭하면 글자 색상이 바뀌어요~!</p>
+    <p id="4">클릭하면 글자 색상이 바뀌어요~!</p>
+    <div id="mousezone">마우스 존</div>
+    <div id="overzone">H 오버 존</div>
+    <input type="text" placeholder="아이디" />
+    <input type="password" placeholder="비밀번호" />
+  </body>
+</html>
