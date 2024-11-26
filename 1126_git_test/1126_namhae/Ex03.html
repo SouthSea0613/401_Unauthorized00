@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<script src="../JS/jquery-3.7.1.min.js"></script>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            div#ex1 {
+                width: 300px;
+                height: 200px;
+                background-color: #59b1f6;
+            }
+            div#ex2 {
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="ex1">
+            아이디: <input id="userid" type="text" name="userid" />
+            <br />
+            비밀번호: <input id="userpw" type="password" name="userpass" />
+            <button id="btn">로그인</button>
+            <div id="ex2"><p></p></div>
+        </div>
+    </body>
+</html>
+
+<script>
+    $('#btn').click(() => {
+        if ($('#userid').val().length < 4 || $('#userid').val().length > 9) {
+            $('#ex2>p').html('?');
+        }
+        else {
+            $('#ex2>p').html('ㅗ');
+            // document.querySelector('p').innerText = 'ㅗ';
+        }
+    });
+</script>
