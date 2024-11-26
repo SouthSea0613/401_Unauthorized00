@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <script>
+        let arr=[{id:'aaa',pw:'1111'},{id:'bbb',pw:'2222'}];
+        arr.push({id:'ccc',pw:'3333'});
+        console.log(arr);
+        // $(arr).each(function(idx, elem){
+        //     console.log('this=',this);
+        //     console.log('idx=',idx);
+        //     console.log('elem=',elem);
+        // });
+        $.each(arr,function(idx, elem){
+            console.log('this=',this);
+            console.log('idx=',idx);
+            console.log('elem=',elem);
+        });
+        console.log('--------------');
+        let obj = {id:'kim',pw:'1111',age:10};
+        //for in
+
+        //객체는 밑의 형식대로 하면 안됨
+        //$(obj).each(function(idx, elem){
+        //     console.log('this=',this);
+        //     console.log('idx=',idx);
+        //     console.log('elem=',elem);
+
+
+        $.each(obj,function(key,value){
+            console.log('this=',this);
+            console.log('key=',key);
+            console.log('value=',value);
+        });
+    </script>
+</body>
+</html>
