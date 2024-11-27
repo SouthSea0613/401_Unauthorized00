@@ -23,8 +23,8 @@ function loginclick() {
         return;
     }
     else {
-        let userdata = JSON.parse(localStorage.getItem(id));
-        if (userdata && userdata.pwset === pw) {
+        let userdata = JSON.parse(localStorage.getItem('accounts') || []);
+        if (userdata.find(user => user.idset === id && user.pwset === pw)) {
             location.href = "../html/home.html";
         }
         else {
