@@ -1,0 +1,37 @@
+.img{
+    width: 600px;
+    height: 500px;
+    background-color: rgb(201, 201, 250);
+    font-size: 10px;
+    border: 2px solid black;
+    border-radius: 10px 0px 0px 10px;
+}
+.replyMain{
+    width: 600px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    font-size: 10px;
+    border: 2px solid black;
+    border-radius: 0px 10px 10px 0px;
+
+}
+.mainUser{
+    border: 1px solid black;
+}
+.mainUser2{
+    border: 1px solid black;
+}
+.reply{
+    border: 1px solid black;
+    width: 600px;
+    height: 360px;
+    overflow: scroll;
+
+    line-height: 40px;
+    text-align: left;
+}
+.main{
+    display: flex;
+    justify-content: center;
+
+}

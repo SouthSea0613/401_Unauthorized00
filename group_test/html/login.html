@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        text-align: center;
+      }
+    </style>
+    <script src="../js/loginclick.js"></script>
+    <script src="../js/setclick.js"></script>
+  </head>
+  <body>
+    <div class="login">
+      <input type="text" id="id" placeholder="아이디 입력" /><br />
+      <input type="password" id="pw" placeholder="비밀번호 입력" /><br />
+
+      <button type="button" id="login" onclick="loginclick()">로그인</button>
+    </div>
+    <hr />
+    <div class="enjoy">
+      아이디<br />
+      <input type="text" id="idset" placeholder="아이디" /><br />
+      비밀번호 <br />
+      <input type="password" id="pwset" placeholder="비밀번호" /><br />
+      비밀번호 확인<br />
+      <input type="password" id="pwsetcheck" placeholder="비밀번호 확인" /><br />
+      성명<br />
+      <input type="text" id="nameset" placeholder="성명" /><br />
+      사용자 이름(닉네임)<br />
+      <input type="text" id="nikname" placeholder="사용자 이름(닉네임)" /><br />
+      이메일<br />
+      <input type="email" id="emailset" placeholder="이메일" /><br />
+      전화번호<br />
+      <input type="text" id="phoneset" placeholder="전화번호" /><br />
+      생년월일<br />
+      <input type="date" id="bithset" /><br />
+      <div class="bithoutput" id="bithoutput"></div>
+      성별<br />
+      <input type="radio" id="male" name="genderset" value="남성" />
+      <label for="male">남성</label>
+      <input type="radio" id="female" name="genderset" value="여성" />
+      <label for="female">여성</label>
+      <br />
+      <button type="button" id="enjoy" onclick="setclick()">회원가입</button><br />
+      <div id="loaddata" class="output"></div>
+    </div>
+  </body>
+</html>

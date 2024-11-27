@@ -1,0 +1,83 @@
+/* homeStyles.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+}
+
+.header {
+    background-color: white;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 10px 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header .navigation ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.header .navigation ul li {
+    margin-left: 20px;
+}
+
+.header .navigation ul li a {
+    text-decoration: none;
+    color: #262626;
+}
+
+.main-content .container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.story-section {
+    margin-bottom: 20px;
+}
+
+.story-section .stories {
+    display: flex;
+    overflow: auto;
+}
+
+.story-section .story {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    background-color: #dbdbdb;
+    margin-right: 10px;
+}
+
+.post-section .post {
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.post-section .post img {
+    width: 100%;
+    display: block;
+}
+
+.post-section .post-description {
+    margin-top: 10px;
+}

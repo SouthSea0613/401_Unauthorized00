@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/replyStyles.css">
+        <script src="../jquery-3.7.1.min.js"></script>
+    </head>
+
+    <body>
+        <div class="main">
+            <div class="img">
+                이미지
+            </div>
+
+            <div class="replyMain">
+                <div class="mainUser">
+                    <img src="../jQuery/스크린샷 2024-10-10 143633.png"
+                    width="50">
+                    아이디
+                    <input type="button" onclick="follow()" value="팔로우"/>
+                </div>
+
+                <div class="mainUser2"><img src="../jQuery/스크린샷 2024-10-10 143633.png"
+                    width="50"> 아이디 사진설명</div>
+
+                <div class="reply"></div>
+
+                <div class="replyText" >
+                    <input type="text"
+                   id="intBox"
+                   onchange="input()"
+                   placeholder="댓글을 입력하세요."/>
+                </div>
+            </div>
+        </div>
+
+        <script src="../js/reply.js"></script>
+    </body>
+</html>
