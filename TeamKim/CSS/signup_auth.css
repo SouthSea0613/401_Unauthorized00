@@ -1,0 +1,91 @@
+.signup_section {
+  display: flex;
+  justify-content: center;
+}
+#logo_span {
+  font-size: 35px;
+}
+.signup_div {
+  border: 1px solid lightgray;
+  padding: 30px 90px;
+}
+.logo_nav {
+  display: flex;
+  justify-content: center;
+}
+.content {
+  width: 400px;
+  height: auto;
+}
+.logo_nav {
+  margin-top: 200px;
+}
+.chk_li {
+  list-style: none;
+  height: 40px;
+}
+label {
+  font-size: 16px;
+}
+#explain {
+  color: gray;
+}
+.explain_li {
+  color: gray;
+  font-size: 13px;
+  list-style: none;
+}
+.explain_ul {
+  padding: 0;
+}
+#errormsg {
+  font-size: 15px;
+}
+#email {
+  border: none;
+  border-bottom: 2px solid gray;
+  outline: none;
+}
+#title_p {
+  font-size: 23px;
+}
+#auth_btn {
+  /* position: absolute;
+    right: 149px;
+    top: 378px; */
+  border-radius: 10px;
+  border: 1px solid gray;
+  background-color: white;
+  cursor: pointer;
+  width: 90px;
+  height: 30px;
+}
+input {
+  width: 100%;
+  font-size: 20px;
+  height: 35px;
+}
+#next {
+  width: 100%;
+}
+#email {
+  border: none;
+  background-color: white;
+  padding: 10px 0px;
+  border-bottom: 2px solid gray;
+}
+#auth {
+  border: none;
+  background-color: white;
+  padding: 10px 0px;
+  border-bottom: 2px solid gray;
+}
+.nextbtn {
+  margin-top: 50px;
+}
+#question {
+  text-decoration: underline;
+  font-size: 13px;
+}
+.question_div {
+}

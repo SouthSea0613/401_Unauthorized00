@@ -4,14 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link href="./CSS/success.css" rel="stylesheet" />
   </head>
   <body>
-    <div class="signup_div">
+    <nav class="logo_nav">
       <div class="logo">
-        <h2>kakao</h2>
+        <span id="logo_span">kakao</span>
       </div>
-    </div>
-    <button onclick="location.href='login.html'">시작하기</button>
+    </nav>
+    <section class="profile_sec">
+      <div class="profile">
+        <img src="./img/user.png" class="user_img" />
+        <div class="btn_div">
+          <button id="start" onclick="location.href='login.html'">
+            시작하기
+          </button>
+        </div>
+      </div>
+    </section>
     <script src="./js/logo.js"></script>
   </body>
 </html>

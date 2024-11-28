@@ -1,52 +1,70 @@
 <!DOCTYPE html>
-
-<script src="./js/logo.js"></script>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./CSS/signup_email.css" />
   </head>
-
   <body>
-    <div class="signup_div">
+    <nav class="logo_nav">
       <div class="logo">
-        <h2>kakao</h2>
+        <span id="logo_span">kakao</span>
+      </div>
+    </nav>
+    <section class="signup_section">
+      <div class="signup_div">
+        <div class="content">
+        <p id="title_p">
+          카카오계정으로 사용할 <br />
+          이메일을 입력해 주세요.
+        </p>
+        <input type="email" name="" id="email" placeholder="이메일 입력" />
+        <input type="text" name="" id="phoneNumber" placeholder="전화번호 입력" />
+        <p id="errormsg" style="display: none"></p>
+
+        <button id="auth_btn">인증 요청</button>
+        <p id="explain">
+            <ul class="explain_ul">
+                <li class="explain_li">·입력한 이메일로 인증번호가 발송됩니다.</li>
+                <li class="explain_li">·인증메일을 받을 수 있도록 자주 쓰는 이메일을 입력해 주세요.</li>
+                <li class="explain_li">·사용 중인 Daum 이메일이 있다면, Daum 아이디로 가입해 주세요.</li>
+            </ul>
+        </p>
+        <button id="next" disabled>다음</button>
       </div>
     </div>
-
-    <h2>카카오계정으로 사용할 전화번호와 이메일을 입력해 주세요.</h2>
-
-    <input type="email" name="" id="email" placeholder="이메일 입력" />
-    <input type="text" name="" id="phoneNumber" placeholder="전화번호 입력" />
-    <p id="errormsg" style="display: none"></p>
-
-    <div class="">
-      <button id="auth_btn">인증 요청</button>
-    </div>
-
-    <button disabled>다음</button>
+    </section>
+    <script src="./js/logo.js"></script>
+    <script>
+      const authbtn = document.getElementById("auth_btn")
+      const errormsg = document.getElementById("errormsg")
+      authbtn.addEventListener("click", function () {
+        let email = document.getElementById("email").value
+        let msg_text = document.createElement("p")
+        const emailInput = document.getElementById("email")
+        let phoneNumber = document.getElementById("phoneNumber").value;
+        if (email == false) {
+          errormsg.textContent = "카카오계정 이메일을 입력해주세요"
+          errormsg.style.display = "block"
+        
+          emailInput.style.borderBottom = "2px solid red"
+          errormsg.style.color = "red"
+        } else if (!validateEmail(emailInput.value)) {
+          errormsg.textContent = "카카오계정 이메일 형식이 올바르지 않습니다."
+          errormsg.style.display = "block"
+             emailInput.style.borderBottom = "2px solid red"
+          errormsg.style.color = "red"
+        } else {
+          localStorage.setItem("email", JSON.stringify(email))
+          localStorage.setItem("phoneNumber", JSON.stringify(phoneNumber))
+          location.href = "signup_auth.html"
+        }
+      })
+      function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        return emailRegex.test(email)
+      }
+    </script>
   </body>
 </html>
-
-<script>
-  const authbtn = document.getElementById("auth_btn")
-  const errormsg = document.getElementById("errormsg")
-
-  authbtn.addEventListener("click", function () {
-    let email = document.getElementById("email").value;
-    let phoneNumber = document.getElementById("phoneNumber").value;
-    let msg_text = document.createElement("p")
-
-    if (email == false) {
-      errormsg.textContent = "카카오계정 이메일을 입력해주세요"
-      errormsg.style.display = "block"
-      errormsg.style.color = "red"
-    } else {
-      localStorage.setItem("email", JSON.stringify(email))
-      localStorage.setItem("phoneNumber", JSON.stringify(phoneNumber))
-      location.href = "signup_auth.html"
-    }
-  })
-</script>

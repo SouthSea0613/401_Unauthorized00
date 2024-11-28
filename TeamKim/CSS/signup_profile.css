@@ -4,7 +4,6 @@
 }
 #logo_span {
   font-size: 35px;
-  cursor: pointer;
 }
 .signup_div {
   border: 1px solid lightgray;
@@ -21,9 +20,6 @@
 .logo_nav {
   margin-top: 200px;
 }
-.logo {
-  margin-bottom: 20px;
-}
 .chk_li {
   list-style: none;
   height: 40px;
@@ -33,10 +29,6 @@ label {
 }
 #explain {
   color: gray;
-}
-.start_title {
-  display: flex;
-  justify-content: center;
 }
 .explain_li {
   color: gray;
@@ -67,8 +59,8 @@ label {
 }
 #auth_btn {
   /* position: absolute;
-      right: 149px;
-      top: 378px; */
+    right: 149px;
+    top: 378px; */
   border-radius: 10px;
   border: 1px solid gray;
   background-color: white;
@@ -78,12 +70,15 @@ label {
 }
 #year-select {
   border: none;
+  width: auto;
 }
 #month-select {
   border: none;
+  width: auto;
 }
 #day-select {
   border: none;
+  width: auto;
 }
 .option_div {
   margin-top: 30px;
@@ -118,28 +113,4 @@ select {
 }
 input[type="radio"] {
   width: 20px;
-}
-.email_btn {
-  background-color: #fee500;
-  border: none;
-  width: 100%;
-  height: 60px;
-  font-size: 18px;
-}
-.new_email {
-  background-color: #dddddd;
-  border: none;
-  width: 100%;
-  color: gray;
-  height: 60px;
-  font-size: 18px;
-}
-.btn {
-  margin: 20px 0px;
-}
-#start_signup {
-  font-size: 25px;
-}
-button {
-  cursor: pointer;
 }

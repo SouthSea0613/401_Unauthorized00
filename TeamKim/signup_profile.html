@@ -4,18 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile Setup</title>
+    <link rel="stylesheet" href="./CSS/signup_profile.css">
   </head>
   <body>
-    <div class="signup_div">
-      <div class="logo">
-        <h2>kakao</h2>
-      </div>
-      <h2>카카오계정 프로필을 설정해주세요</h2>
-
+    <nav class="logo_nav">
+        <div class="logo">
+          <span id="logo_span">kakao</span>
+        </div>
+      </nav>
+      <section class="signup_section">    
+        
+        <div class="signup_div">
+            <div class="content">
+      <p id="title_p">카카오계정 프로필을 <br> 설정해주세요</p>
+        <p id="nickname_p">닉네임</p>
       <input type="text" id="nickname" placeholder="닉네임 입력" />
       <p id="errormsg"></p>
-
-      <label for="year-select">년도 선택: </label>
+            <div class="option_div">
+                <p id="date_p">생일</p>
       <select id="year-select">
         <option value="" selected disabled>연도</option>
       </select>
@@ -25,32 +31,39 @@
       <select id="day-select">
         <option value="" selected disabled>일</option>
       </select>
+    </div>
 
-      <label>성별</label>
+      <p id="gender_p">성별</p>
+      <div class="gender_div">
       <input type="radio" name="gender" id="gender_m" value="남성" />
-      <label for="gender_m">남성</label>
+      <label for="gender_m" id="gender_label">남성</label>
 
+  
       <input type="radio" name="gender" id="gender_f" value="여성" />
       <label for="gender_f">여성</label>
-
-      <button id="signup_btn">확인</button>
     </div>
+
+      <button id="next">확인</button>
+    </div>
+</div>
+</div>
+</section>
 
     <script>
       const nickname = document.getElementById("nickname")
-      const signupbtn = document.getElementById("signup_btn")
+      const signupbtn = document.getElementById("next")
       const errormsg = document.getElementById("errormsg")
       const yearselect = document.getElementById("year-select")
       const monthselect = document.getElementById("month-select")
       const dayselect = document.getElementById("day-select")
 
       // 연도 동적 생성
-      const startYear = 2000
+      const startYear = 1910
       const endYear = new Date().getFullYear()
       for (let year = startYear; year <= endYear; year++) {
         const option = document.createElement("option")
         option.value = year
-        option.textContent = year
+        option.textContent = `${year}년`
         yearselect.appendChild(option)
       }
 
