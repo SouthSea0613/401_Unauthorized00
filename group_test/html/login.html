@@ -42,7 +42,7 @@
 
       <input type="text" id="nameset" placeholder="성명" /><br />
 
-      <input type="text" id="nikname" placeholder="사용자 이름(닉네임)" /><br />
+      <input type="text" id="nikname" placeholder="프로필이미지" /><br />
 
       <input type="email" id="emailset" placeholder="이메일" /><br />
 
@@ -63,11 +63,9 @@
       ><br /><br />
       <hr />
       아이디를 잊어버리셨나요? <br /><br />
-      <button type="button" id="findid" onclick="findid()">아이디 찾기</button>
-      <br /><br />
-      <button type="button" id="resetpw" onclick="resetpw()">
-        비밀번호 재설정
-      </button>
+        <button type="button" id="findid" onclick="location.href = 'findid.html'">아이디 찾기</button>
+        <br /><br />
+        <button type="button" id="resetpw" onclick="location.href = 'resetpw.html'">비밀번호 재설정</button>
       <div id="loaddata" class="output"></div>
     </div>
 

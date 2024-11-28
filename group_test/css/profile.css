@@ -1,0 +1,103 @@
+/* Instagram 로고 스타일 */
+.mainLogo {
+  width: 140px;
+  height: auto;
+}
+
+/* 프로필 이미지 스타일 */
+.profile-image-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 사용자 이름 스타일 */
+.username {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-left: 10px;
+}
+
+/* 프로필 상단 영역 */
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc; /* 여기에 선 추가 */
+}
+
+/* 게시물 스타일 */
+.post {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+/* 게시물 상단(프로필, 사용자 이름) */
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* 게시물 이미지 스타일 */
+.post-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+/* 게시물 설명 */
+.post-description {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* 게시물 하단 구분선 */
+.divider {
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+/* 게시물 하단 아이콘(좋아요, 댓글) */
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 아이콘을 가운데 정렬 */
+.icon {
+  display: flex;
+  justify-content: space-around;
+  width: 80px;
+}
+
+/* 각 아이콘의 크기 및 간격 */
+.icon svg {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+/* 아이콘에 호버 효과 추가 */
+.icon svg:hover {
+  transform: scale(1.2);
+}

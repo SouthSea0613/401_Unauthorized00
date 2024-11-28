@@ -7,7 +7,6 @@ function resetPassword() {
   let email = $("#email").val().trim();
   let newPassword = $("#newPassword").val().trim();
   let confirmPassword = $("#confirmPassword").val().trim();
-  let resultDiv = $("#result");
 
   if (email === "" || newPassword === "" || confirmPassword === "") {
     alert("이메일, 새 비밀번호 및 비밀번호 확인을 모두 입력해주세요.");

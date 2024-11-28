@@ -13,13 +13,3 @@ onload = function () {
         }
     }
 };
-
-function logout() {
-    if (confirm("정말 로그아웃 하시겠습니까?")) {
-        alert("로그아웃 되었습니다.");
-        localStorage.setItem("loginingId", "");
-        location.href = "login.html";
-    } else {
-        alert("로그아웃이 취소되었습니다.");
-    }
-}
