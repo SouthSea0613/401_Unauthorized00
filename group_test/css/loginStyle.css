@@ -1,0 +1,186 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 50px;
+}
+
+hr {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #dbdbdb;
+  margin: 20px 0;
+}
+
+/* 로그인 창 스타일 */
+.login {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.login button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.login button:hover {
+  background-color: #007bb5;
+}
+
+/* 회원가입 창 스타일 */
+.enjoy {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.enjoy input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.enjoy button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.enjoy button:hover {
+  background-color: #007bb5;
+}
+
+.find {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.find input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.find button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.find button:hover {
+  background-color: #007bb5;
+}
+
+/* 작은 화면에서 입력 필드 및 버튼 크기 조정 */
+@media (max-width: 500px) {
+  .login,
+  .enjoy {
+    padding: 15px;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="date"] {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 12px;
+  }
+}
+
+div {
+  text-align: center;
+}
+
+#loaddata {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+.instaLogo {
+  width: 200px;
+  height: auto;
+  padding: 20px;
+}
+
+/* radioDiv 스타일 */
+.radioDiv {
+  display: flex; /* 플렉스 레이아웃으로 자식 요소들을 수평 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  gap: 30px; /* 라디오 버튼과 레이블 간의 간격을 좁힘 */
+}
+
+/* radio 버튼 */
+input[type="radio"] {
+  display: inline-block; /* 라디오 버튼을 인라인 블록으로 설정 */
+  margin-right: 5px; /* 라디오 버튼과 텍스트 사이 간격 */
+}
+
+/* label */
+label {
+  display: inline-block; /* label을 인라인 블록으로 설정 */
+  margin-right: 10px; /* 라벨과 다른 라벨 사이 간격 */
+}

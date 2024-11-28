@@ -1,36 +1,122 @@
-.img{
+/* 이미지 영역 */
+.img {
     width: 600px;
     height: 500px;
-    background-color: rgb(201, 201, 250);
+    background-color: rgb(237, 237, 237);
     font-size: 10px;
-    border: 1px solid black;
-    border-right :none;
-    border-radius: 10px 0px 0px 10px;
-}
-.replyMain{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0; /* 이미지와 댓글 사이 공백을 없앰 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px 0 0 20px;
+  }
+  
+  /* 댓글 및 게시물 영역 */
+  .replyMain {
     width: 600px;
     height: 500px;
     background-color: rgb(255, 255, 255);
     font-size: 10px;
-    border: 1px solid black;
-    border-left :none;
-    border-radius: 0px 10px 10px 0px;
-
-}
-.mainUser{
-    border-bottom: 1px solid black;
-}
-.reply{
-    border: 1px solid black;
-    width: 599px;
-    height: 434px;
-    overflow: scroll;
-
-    line-height: 40px;
-    text-align: left;
-}
-.main{
     display: flex;
-    justify-content: center;
-
-}
+    flex-direction: column;
+    margin-left: 0; /* 공백 제거 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0 20px 20px 0;
+  }
+  
+  /* 사용자 정보 영역 */
+  .mainUser,
+  .mainUser2 {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #dbdbdb;
+  }
+  
+  .mainUser img,
+  .mainUser2 img {
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .mainUser input {
+    margin-left: auto;
+    padding: 5px 15px;
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .mainUser input:hover {
+    background-color: #007bb5;
+  }
+  
+  /* 댓글 영역 */
+  .reply {
+    width: 100%;
+    height: 360px;
+    overflow-y: scroll;
+    border-top: 1px solid #dbdbdb;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+  }
+  
+  .reply div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .reply img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  /* 댓글 입력창 */
+  .replyText {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fafafa;
+    border-top: 1px solid #dbdbdb;
+    border-radius: 0 0 20px 0;
+  }
+  
+  .replyText input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+    border-radius: 20px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .replyText input:focus {
+    outline: none;
+    border-color: #0095f6;
+  }
+  
+  /* 메인 레이아웃 */
+  .main {
+    display: flex;
+    justify-content: center; /* 이미지와 댓글 영역을 중앙 정렬 */
+    align-items: flex-start; /* 상단 정렬 */
+    gap: 0; /* 이미지와 댓글 영역 사이의 간격을 없앰 */
+    margin-top: 50px; /* 상단 여백 추가 */
+  }
+  
+  .mainLogo {
+    width: 140px;
+    height: auto;
+  }
+  

@@ -3,11 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>로그인 - Instgram</title>
+    <link
+    rel="icon"
+    href="../img/인스타그램 아이콘, 심볼, 로고-03.png"
+    type="image/x-icon"
+  />
     <style>
-      div {
-        text-align: center;
-      }
+      @import url(../css/loginStyle.css);
     </style>
     <script src="../js/loginclick.js"></script>
     <script src="../js/setclick.js"></script>
@@ -17,45 +20,57 @@
   </head>
   <body>
     <div class="login">
+      <img
+        src="../img/인스타그램 아이콘, 심볼, 로고-02.png"
+        class="instaLogo"
+      />
       <input type="text" id="id" placeholder="아이디 입력" /><br />
       <input type="password" id="pw" placeholder="비밀번호 입력" /><br />
 
       <button type="button" id="login" onclick="loginclick()">로그인</button>
     </div>
-    <hr />
     <div class="enjoy">
-      아이디<br />
       <input type="text" id="idset" placeholder="아이디" /><br />
-      비밀번호 <br />
+
       <input type="password" id="pwset" placeholder="비밀번호" /><br />
-      비밀번호 확인<br />
-      <input type="password" id="pwsetcheck" placeholder="비밀번호 확인" /><br />
-      성명<br />
+
+      <input
+        type="password"
+        id="pwsetcheck"
+        placeholder="비밀번호 확인"
+      /><br />
+
       <input type="text" id="nameset" placeholder="성명" /><br />
-      사용자 이름(닉네임)<br />
+
       <input type="text" id="nikname" placeholder="사용자 이름(닉네임)" /><br />
-      이메일<br />
+
       <input type="email" id="emailset" placeholder="이메일" /><br />
-      전화번호<br />
+
       <input type="text" id="phoneset" placeholder="전화번호" /><br />
-      생년월일<br />
+
       <input type="date" id="bithset" /><br />
       <div class="bithoutput" id="bithoutput"></div>
-      성별<br />
-      <input type="radio" id="male" name="genderset" value="남성" />
-      <label for="male">남성</label>
-      <input type="radio" id="female" name="genderset" value="여성" />
-      <label for="female">여성</label>
-      <br />
-      <button type="button" id="enjoy" onclick="setclick()">회원가입</button><br />
+
+      <div class="radioDiv">
+        <input type="radio" id="male" name="genderset" value="남성" />
+        <label for="male">남</label>
+        <input type="radio" id="female" name="genderset" value="여성" />
+        <label for="female">여</label>
+        <br /><br /><br />
+      </div>
+
+      <button type="button" id="enjoy" onclick="setclick()">회원가입</button
+      ><br /><br />
+      <hr />
+      아이디를 잊어버리셨나요? <br /><br />
+      <button type="button" id="findid" onclick="findid()">아이디 찾기</button>
+      <br /><br />
+      <button type="button" id="resetpw" onclick="resetpw()">
+        비밀번호 재설정
+      </button>
       <div id="loaddata" class="output"></div>
     </div>
-    <hr />
 
-    <div class="find">
-      아이디를 잊어버리셨나요? <br />
-      <button type="button" id="findid" onclick="findidpage()">아이디 찾기</button>
-      <button type="button" id="resetpw" onclick="resetpwpage()">비밀번호 재설정</button>
-    </div>
+    <div class="find"></div>
   </body>
 </html>

@@ -1,55 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="../css/replyStyles.css">
-        <link rel="stylesheet" href="../css/homeStyles.css">
-        <script src="../jquery-3.7.1.min.js"></script>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram</title>
+    <link
+      rel="icon"
+      href="../img/인스타그램 아이콘, 심볼, 로고-03.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../css/replyStyles.css" />
+    <link rel="stylesheet" href="../css/homeStyles.css" />
+    <script src="../jquery-3.7.1.min.js"></script>
+  </head>
 
-    <body>
-        <header class="header">
-            <div class="container">
-                <h1 class="logo">??stagram</h1>
-                <nav class="navigation">
-                    <ul>
-                        <li><a href="home.html">Home</a></li>
-                        <li><a href="search.html">Search</a></li>
-                        <li><a href="profile.html">Profile</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+  <body>
+    <header class="header">
+      <div class="container">
+        <img
+          class="mainLogo"
+          src="../img/인스타그램 아이콘, 심볼, 로고-02.png"
+        />
+        <nav class="navigation">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="profile.html">Profile</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-        <div class="main">
-            <div class="img">
-                이미지
-            </div>
+    <div class="main">
+      <div class="img">이미지 로딩중...</div>
 
-            <div class="replyMain">
-                <div class="mainUser">
-                    <img src="../jQuery/스크린샷 2024-10-10 143633.png"
-                    width="50">
-                    아이디
-                    <input type="button" onclick="follow()" value="팔로우"/>
-                </div>
-
-                <div class="mainUser2"><img src="../jQuery/스크린샷 2024-10-10 143633.png"
-                    width="50"> 아이디 사진설명</div>
-
-                <div class="reply"></div>
-
-                <div class="replyText" >
-                    <input type="text"
-                   id="intBox"
-                   onchange="input()"
-                   placeholder="댓글을 입력하세요."/>
-                </div>
-            </div>
+      <div class="replyMain">
+        <div class="mainUser">
+          <img src="../img/인스타그램 아이콘, 심볼, 로고-03.png" width="50" />
+          아이디
+          <input type="button" onclick="follow(this)" value="팔로우" />
         </div>
 
-        <script src="../js/reply.js"></script>
-    </body>
+        <div class="mainUser2">
+          <img src="../img/인스타그램 아이콘, 심볼, 로고-03.png" width="50" />
+          아이디 사진설명
+        </div>
+
+        <div class="reply"></div>
+
+        <div class="replyText">
+          <input
+            type="text"
+            id="intBox"
+            onchange="input()"
+            placeholder="댓글을 입력하세요."
+          />
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/reply.js"></script>
+  </body>
 </html>
