@@ -3,12 +3,19 @@ onload = function() {
     for (let i = 0; i < posts.length; i++) {
         const post = $(`
             <div class="post">
-                <img src="${posts[i].image}" alt="Post image" onclick="location.href='reply.html'">
+                <img src="${posts[i].image}" alt="Post image">
                 <p class="post-description">${posts[i].text}</p>
             </div>
         `);
         $(".post-section").prepend(post);
     }
+
+    $('.post-section .post').click(function () {
+        localStorage.setItem("img", $(this).children('img').attr('src'));
+        localStorage.setItem('contents', $(this).children('.post-description').html());
+        location.href='reply.html'
+    })
+
 }
 
 $(".commit-button").click(()=> {
@@ -33,7 +40,7 @@ $(".commit-button").click(()=> {
         for (let i = 0; i < posts.length; i++) {
             const post = $(`
             <div class="post">
-                <img src="${posts[i].image}" alt="Post image" onclick="location.href='reply.html'">
+                <img src="${posts[i].image}" alt="Post image">
                 <p class="post-description">${posts[i].text}</p>
             </div>
         `);
@@ -71,7 +78,7 @@ $($(".post input")[1]).change(()=> {
         for (let i = 0; i < posts.length; i++) {
             const post = $(`
             <div class="post">
-                <img src="${posts[i].image}" alt="Post image" onclick="location.href='reply.html'">
+                <img src="${posts[i].image}" alt="Post image">
                 <p class="post-description">${posts[i].text}</p>
             </div>
         `);

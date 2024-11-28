@@ -12,6 +12,14 @@ onload = function () {
         $(".reply").append(div2);
     }
     $("#intBox").val("");
+
+    $(".img").text('');
+    let img = localStorage.getItem('img')
+    let contents = localStorage.getItem('contents')
+    let IMG= $(`<img id="postimg" src=${img} alt="Post image" onclick="location.href='reply.html'">`)
+    $(".img").prepend(IMG);
+    let CONTENTS = $(`<p id="content_p">${contents}</p>`)
+    $(".mainUser2").append(CONTENTS);
 };
 
 function input() {
