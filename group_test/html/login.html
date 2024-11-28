@@ -11,6 +11,9 @@
     </style>
     <script src="../js/loginclick.js"></script>
     <script src="../js/setclick.js"></script>
+    <script src="../js/findIdSc.js"></script>
+    <script src="../js/resetPwSc.js"></script>
+    <script src="../js/page.js"></script>
   </head>
   <body>
     <div class="login">
@@ -46,6 +49,13 @@
       <br />
       <button type="button" id="enjoy" onclick="setclick()">회원가입</button><br />
       <div id="loaddata" class="output"></div>
+    </div>
+    <hr />
+
+    <div class="find">
+      아이디를 잊어버리셨나요? <br />
+      <button type="button" id="findid" onclick="findidpage()">아이디 찾기</button>
+      <button type="button" id="resetpw" onclick="resetpwpage()">비밀번호 재설정</button>
     </div>
   </body>
 </html>

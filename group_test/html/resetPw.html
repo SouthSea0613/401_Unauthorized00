@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비밀번호 재설정</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/resetPwSc.js"></script>
+    <script src="../js/page.js"></script>
+  </head>
+  <body>
+    <h1>비밀번호 재설정</h1>
+
+    <label for="email">이메일</label>
+    <input type="email" id="email" placeholder="이메일을 입력하세요" />
+    <br />
+    <label for="newPassword">새 비밀번호</label>
+    <input type="password" id="newPassword" placeholder="새 비밀번호를 입력하세요" />
+    <br />
+    <label for="confirmPassword">비밀번호 확인</label>
+    <input type="password" id="confirmPassword" placeholder="비밀번호 확인을 입력하세요" />
+    <br />
+    <button id="resetBtn">비밀번호 재설정</button>
+
+    <div id="result"></div>
+    <hr />
+    아이디가 기억나지 않으시나요? <br />
+    <button type="button" onclick="findidpage()">아이디 찾기</button>
+    <hr />
+    로그인 하시겠어요? <br />
+    <button type="button" onclick="loginpage()">로그인</button>
+  </body>
+</html>
