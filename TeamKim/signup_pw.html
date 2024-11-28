@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="signup_div">
+      <div class="logo">
+        <h2>kakao</h2>
+      </div>
+    </div>
+    <input type="text" name="" id="input_pw" placeholder="비밀번호" />
+    <input type="text" name="" id="auth_pw" placeholder="비밀번호 확인" />
+    <p id="errormsg" style="display: hidden"></p>
+
+    <button>다음</button>
+    
+    <script src="./js/logo.js"></script>
+    <script>
+      let inputpw = document.getElementById("input_pw")
+      let auth_pw = document.getElementById("auth_pw")
+      let errormsg = document.getElementById("errormsg")
+      let button = document.querySelector("button")
+      button.addEventListener("click", function () {
+        console.log(inputpw.value)
+        if (
+          inputpw.value == auth_pw.value &&
+          inputpw.value != false &&
+          auth_pw.value != false
+        ) {
+          localStorage.setItem("pw", JSON.stringify(inputpw.value))
+          location.href = "./signup_profile.html"
+        } else if (inputpw.value == "" && auth_pw.value == "") {
+          errormsg.textContent = "비밀번호를 입력해주세요"
+          errormsg.style.display = "block"
+          errormsg.style.color = "red"
+        } else {
+          errormsg.textContent = "비밀번호를 확인해주세요"
+          errormsg.style.display = "block"
+          errormsg.style.color = "red"
+        }
+      })
+    </script>
+  </body>
+</html>

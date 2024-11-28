@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<script src="./js/logo.js"></script>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="signup_div">
+      <div class="logo">
+        <h2>kakao</h2>
+      </div>
+    </div>
+
+    <h2>카카오계정으로 사용할 전화번호와 이메일을 입력해 주세요.</h2>
+
+    <input type="email" name="" id="email" placeholder="이메일 입력" />
+    <input type="text" name="" id="phoneNumber" placeholder="전화번호 입력" />
+    <p id="errormsg" style="display: none"></p>
+
+    <div class="">
+      <button id="auth_btn">인증 요청</button>
+    </div>
+
+    <button disabled>다음</button>
+  </body>
+</html>
+
+<script>
+  const authbtn = document.getElementById("auth_btn")
+  const errormsg = document.getElementById("errormsg")
+
+  authbtn.addEventListener("click", function () {
+    let email = document.getElementById("email").value;
+    let phoneNumber = document.getElementById("phoneNumber").value;
+    let msg_text = document.createElement("p")
+
+    if (email == false) {
+      errormsg.textContent = "카카오계정 이메일을 입력해주세요"
+      errormsg.style.display = "block"
+      errormsg.style.color = "red"
+    } else {
+      localStorage.setItem("email", JSON.stringify(email))
+      localStorage.setItem("phoneNumber", JSON.stringify(phoneNumber))
+      location.href = "signup_auth.html"
+    }
+  })
+</script>

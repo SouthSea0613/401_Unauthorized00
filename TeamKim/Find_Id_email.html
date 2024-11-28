@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카카오계정</title>
+    <link
+    rel="icon"
+    href="./img/kakao.png"
+    type="image/x-icon"
+  />
+    <link rel="stylesheet" href="./CSS/KakaoFind.css" />
+    <script src="./dummy.js"></script>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <h1 id="Ktext">kakao</h1>
+      <div class="border">
+        <h2 id="find_info">
+          닉네임 또는 이름, 전화번호로<br />
+          계정을 찾습니다.
+        </h2>
+        <div>
+          <p id="find_email_info" class="find_email">
+            카카오 서비스에서 이용한 닉네임 또는 이름 및 계정의 연락처<br />
+            이메일로 계정을 찾습니다.
+          </p>
+        </div>
+        <div>
+          <p id="nick" class="p2">닉네임</p>
+          <input type="text" placeholder="닉네임 입력" id="ipId" class="find_id" value="" />
+        </div>
+        <div>
+          <p id="pe" class="p2">연락처 이메일</p>
+          <input type="text" placeholder="이메일 입력" id="ipId2" class="find_id" value="" />
+        </div>
+        <br /><br /><br />
+        <div>
+          <button class="btn1">카카오계정 찾기</button>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <p>Copyright © <b>Kakao Corp.</b> All rights reserved.</p>
+    </div>
+
+    <script>
+      const profile = JSON.parse(localStorage.getItem("profile")) || []
+
+      $(".btn1").click(() => {
+        console.log(profile)
+        let name = $("#ipId").val()
+        let email = $("#ipId2").val()
+
+        for (let i = 0; i < profile.length; i++) {
+          if (name === profile[i].nickname && email === profile[i].email) {
+            console.log(profile[i])
+            alert(
+              "신난다!!! 너 아이디 내가 찾았어^_^: " +
+                profile[i].email +
+                "\n" +
+                "이제 비밀번호를 바꿔볼까?"
+            )
+            window.location.href = "./Find_pw.html"
+            return
+          }
+        }
+        console.log("메롱")
+        alert("다시 써 혼나고 싶지 않으면 ^_^")
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="signup_div">
+      <div class="logo">
+        <h2>kakao</h2>
+      </div>
+      <div class="">
+        <h2>카카오계정 서비스 약관에 동의해주세요</h2>
+        <input type="checkbox" name="" id="all_check" />
+        <label for="all_check">모두 동의합니다</label>
+        <p>
+          전체 동의는 필수 및 선택정보에 대한 동의도 포함되어 있으며,
+          개별적으로도 동의를 선택하실 수 있습니다. 선택항목에 대한 동의를
+          거부하시는 경우에도 서비스는 이용이 가능합니다.
+        </p>
+        <hr class="" />
+        <input type="checkbox" name="" id="age" />
+        <label for="age">만 14세 이상입니다</label>
+        <input type="checkbox" name="" id="clause" />
+        <label for="clause">[필수] 카카오계정 약관</label>
+        <input type="checkbox" name="" id="p_info" />
+        <label for="p_info">[필수] 개인정보 수집 및 이용 동의</label>
+        <input type="checkbox" name="" id="profile" />
+        <label for="profile">[선택] 프로필정보 추가 수집 동의</label>
+      </div>
+      <button class="" onclick="location.href='./signup_email.html'">
+        동의
+      </button>
+    </div>
+    <script>
+      let allcheck = document.getElementById("all_check")
+      let agecheck = document.getElementById("age")
+      let clause = document.getElementById("clause")
+      let p_info = document.getElementById("p_info")
+      let profile = document.getElementById("profile")
+      let all_agr = document.querySelectorAll('input[type="checkbox"]')
+      let agrbtn = document.qu
+      allcheck.addEventListener("click", function () {
+        // allcheck.checked 값에 따라 모든 체크박스 상태 변경
+        for (let check of all_agr) {
+          check.checked = allcheck.checked
+        }
+      })
+      agecheck.addEventListener("click", function () {
+        if (
+          agecheck.checked == unchecked ||
+          clause.checked == unchecked ||
+          p_info.checked == unchecked ||
+          profile.checked == unchecked
+        ) {
+          allcheck.checked == unchecked
+        }
+      })
+    </script>
+    <script src="./js/logo.js"></script>
+  </body>
+</html>

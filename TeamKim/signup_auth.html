@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="signup_div">
+      <div class="logo">
+        <h2>kakao</h2>
+      </div>
+      <div class="">
+        <h2>이메일로 발송된 인증번호를 입력해 주세요</h2>
+        <input type="text" name="" id="email" disabled />
+        <input type="text" name="" id="auth" placeholder="인증번호 8자 입력" />
+        <input type="button" id="nextbtn" value="다음" />
+      </div>
+    </div>
+
+    <script src="./js/logo.js"></script>
+    <script>
+      const emailinput = document.getElementById("auth")
+      const btn = document.getElementById("nextbtn")
+      btn.addEventListener("click", function () {
+        if (emailinput.value == 1234) {
+          location.href = "./signup_pw.html"
+        }
+      })
+      window.onload = () => {
+        const email = localStorage.getItem("email")
+        console.log(email)
+        document.getElementById("email").value = email
+      }
+    </script>
+  
+</body>
+</html>
