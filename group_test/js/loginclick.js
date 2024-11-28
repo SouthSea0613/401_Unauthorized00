@@ -25,6 +25,7 @@ function loginclick() {
     else {
         let userdata = JSON.parse(localStorage.getItem('accounts') || []);
         if (userdata.find(user => user.idset === id && user.pwset === pw)) {
+            localStorage.setItem('loginingId', id)
             location.href = "../html/home.html";
         }
         else {

@@ -43,3 +43,5 @@ $($(".post input")[1]).change(()=> {
         alert("입력값이 없습니다. 내용을 입력해주세요.");
     }
 });
+
+console.log(localStorage.getItem("loginingId") || []);
