@@ -1,0 +1,103 @@
+/* 전체 페이지 스타일 */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 비밀번호 재설정 박스 스타일 */
+.reset-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* 입력 필드 스타일 */
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #0095f6;
+  outline: none;
+}
+
+/* 버튼 스타일 */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #007bb5;
+}
+
+button:active {
+  background-color: #005f91;
+}
+
+/* 결과 메시지 스타일 */
+#result {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #d32f2f;
+}
+
+/* 구분선 스타일 */
+hr {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #dbdbdb;
+  margin: 20px 0;
+}
+
+/* 추가 버튼 스타일 */
+button[type="button"] {
+  background-color: #fff;
+  color: #0095f6;
+  border: 1px solid #dbdbdb;
+  font-size: 14px;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button[type="button"]:hover {
+  background-color: #0095f6;
+  color: #fff;
+}

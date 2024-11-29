@@ -13,9 +13,8 @@ onload = function() {
     $('.post-section .post').click(function () {
         localStorage.setItem("img", $(this).children('img').attr('src'));
         localStorage.setItem('contents', $(this).children('.post-description').html());
-        location.href='reply.html'
-    })
-
+        location.href='reply.html';
+    });
 }
 
 $(".commit-button").click(()=> {

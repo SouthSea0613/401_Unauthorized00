@@ -1,0 +1,108 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 50px;
+}
+
+hr {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #dbdbdb;
+  margin: 20px 0;
+}
+
+.find-id {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.find-id input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.find-id button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.find-id button:hover {
+  background-color: #007bb5;
+}
+
+/* 작은 화면에서 입력 필드 및 버튼 크기 조정 */
+@media (max-width: 500px) {
+  .find-id {
+    padding: 15px;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="date"] {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 12px;
+  }
+}
+
+div {
+  text-align: center;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333;
+}
+.find {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #0095f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
