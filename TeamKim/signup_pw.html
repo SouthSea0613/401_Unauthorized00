@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/signup_pw.css" />
+  </head>
+  <body>
+    <nav class="logo_nav">
+      <div class="logo">
+        <span id="logo_span">kakao</span>
+      </div>
+    </nav>
+    <section class="signup_section">
+      <div class="signup_div">
+        <div class="content">
+          <div class="email_account">
+            <p id="email_p">카카오계정</p>
+            <p id="email"></p>
+          </div>
+          <div class="">
+            <input
+              type="password"
+              name=""
+              id="input_pw"
+              placeholder="비밀번호(8~12자리)"
+            />
+            <input
+              type="password"
+              name=""
+              id="auth_pw"
+              placeholder="비밀번호 재입력"
+            />
+          </div>
+          <p id="errormsg" style="display: hidden"></p>
+          <div class="">
+            <p id="pw_explain">
+              ·비밀번호는 8~12자리의 영문 대소문자, 숫자, 특수문자를 조합하여
+              설정해 주세요. <br />
+              ·다른 사이트에서 사용하는 것과 동일하거나 쉬운 비밀번호는 사용하지
+              마세요. <br />·안전한 계정 사용을 위해 비밀번호는 주기적으로
+              변경해 주세요.
+            </p>
+          </div>
+          <button id="next">다음</button>
+        </div>
+      </div>
+    </section>
+    <script src="./js/logo.js"></script>
+    <script>
+      let inputpw = document.getElementById('input_pw');
+      let auth_pw = document.getElementById('auth_pw');
+      let errormsg = document.getElementById('errormsg');
+      let button = document.querySelector('button');
+      let emailp = document.getElementById('email');
+
+      emailp.innerText = localStorage.getItem('email').split('"')[1];
+      inputpw.addEventListener('input', function () {
+        if (inputpw.value.length < 8 || inputpw.value.length > 12) { // inputpw.value.length > 8 && inputpw.value.length < 12
+          errormsg.textContent = '비밀번호는 8자리~12자리입니다';
+          errormsg.style.display = 'block';
+          errormsg.style.color = 'red';
+        }
+      });
+
+      button.addEventListener('click', function () {
+        console.log(inputpw.value);
+        if (
+          inputpw.value == auth_pw.value &&
+          (inputpw.value.length >= 8 &&
+          inputpw.value.length <= 12)
+        ) {
+          localStorage.setItem('pw', JSON.stringify(inputpw.value));
+          location.href = './signup_profile.html';
+        } else if (inputpw.value == '' && auth_pw.value == '') {
+          errormsg.textContent = '비밀번호를 입력해주세요';
+          errormsg.style.display = 'block';
+          errormsg.style.color = 'red';
+        } else {
+          errormsg.textContent = '비밀번호를 확인해주세요';
+          errormsg.style.display = 'block';
+          errormsg.style.color = 'red';
+        }
+      });
+    </script>
+  </body>
+</html>

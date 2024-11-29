@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카카오계정</title>
+    <link rel="icon" href="./img/kakao.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./CSS/KakaoFind.css" />
+    <script src="./dummy.js"></script>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <h1 id="Ktext">kakao</h1>
+      <div class="border">
+        <h2 id="find_info">
+          카카오계정의<br />
+          비밀번호를 재설정합니다.
+        </h2>
+        <div>
+          <p id="find_pw" class="find_email" style="text-align: left">
+            변경하실 비밀번호를<br />
+            입력해주세요.
+          </p>
+        </div>
+        <div>
+          <p class="p2">변경하실 비밀번호</p>
+          <input type="password" id="ipPw" class="find_id" value="" />
+        </div>
+        <br /><br /><br />
+        <div>
+          <button class="btn2">설정 완료하기</button>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <p>Copyright © <b>Kakao Corp.</b> All rights reserved.</p>
+    </div>
+    <script>
+      const profile = JSON.parse(localStorage.getItem("profile")) || []
+      $(".btn2").click(function () {
+        console.log(profile)
+        let sPw = $("#ipPw").val()
+        if (sPw.length < 8 || sPw.length > 12) {
+          alert(
+            "친구야 비밀번호 길이가 좀 이상해\n비밀번호는 8~12자 까지만 가능해^_^ 후...."
+          )
+          return
+        }
+
+        let i = localStorage.getItem("index")
+        console.log($(".find_id").val())
+        console.log(profile[i].pw)
+
+        profile[i].pw = sPw
+        localStorage.setItem("profile", JSON.stringify(profile))
+
+        console.log(profile)
+        alert("자 이제 로그인을 해보도록 하자 ~.~")
+        window.location.href = "./login.html"
+      })
+    </script>
+  </body>
+</html>

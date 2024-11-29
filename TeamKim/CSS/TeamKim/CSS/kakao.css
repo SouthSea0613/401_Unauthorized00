@@ -1,0 +1,78 @@
+#main {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+#Ktext {
+  position: absolute;
+}
+
+div.border {
+  margin: 100px;
+  width: 500px;
+  height: 700px;
+  border: 1px solid rgb(228, 228, 228);
+}
+
+h3#dh3 {
+  margin-top: 60px;
+}
+
+#find_info {
+  text-align: left;
+  margin: 80px 0px 0px 50px;
+}
+video {
+  width: 380px;
+}
+
+#p1 {
+  color: rgb(100, 100, 100);
+}
+
+p#p2 {
+  margin-bottom: 50px;
+}
+
+#p2 {
+  font-size: 12px;
+}
+
+.find {
+  font-size: 12px;
+  color: rgb(100, 100, 100);
+  margin: 30px 0px 20px 50px;
+  text-align: left;
+}
+
+li#confirm {
+  list-style: none;
+  text-align: left;
+  margin: 10px 0px 10px 10px;
+}
+
+li#finda {
+  font-size: 12px;
+  color: rgb(100, 100, 100);
+  text-align: left;
+  list-style: none;
+  margin: 30px 0px 10px 10px;
+}
+
+#btn {
+  width: 380px;
+  height: 50px;
+  background-color: rgba(254, 229, 9, 0.915);
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 60px 0px 20px 00px;
+}
+#footer {
+  font-size: 12px;
+  color: rgb(100, 100, 100);
+  display: flex;
+  justify-content: center;
+}

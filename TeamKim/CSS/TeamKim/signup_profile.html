@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Setup</title>
+    <link rel="stylesheet" href="./CSS/signup_profile.css">
+  </head>
+  <body>
+    <nav class="logo_nav">
+        <div class="logo">
+          <span id="logo_span">kakao</span>
+        </div>
+      </nav>
+      <section class="signup_section">    
+        
+        <div class="signup_div">
+            <div class="content">
+      <p id="title_p">카카오계정 프로필을 <br> 설정해주세요</p>
+        <p id="nickname_p">닉네임</p>
+      <input type="text" id="nickname" placeholder="닉네임 입력" />
+      <p id="errormsg"></p>
+            <div class="option_div">
+                <p id="date_p">생일</p>
+      <select id="year-select">
+        <option value="" selected disabled>연도</option>
+      </select>
+      <select id="month-select">
+        <option value="" selected disabled>월</option>
+      </select>
+      <select id="day-select">
+        <option value="" selected disabled>일</option>
+      </select>
+    </div>
+
+      <p id="gender_p">성별</p>
+      <div class="gender_div">
+      <input type="radio" name="gender" id="gender_m" value="남성" />
+      <label for="gender_m" id="gender_label">남성</label>
+
+  
+      <input type="radio" name="gender" id="gender_f" value="여성" />
+      <label for="gender_f">여성</label>
+    </div>
+
+      <button id="next">확인</button>
+    </div>
+</div>
+</div>
+</section>
+
+    <script>
+      const nickname = document.getElementById("nickname")
+      const signupbtn = document.getElementById("next")
+      const errormsg = document.getElementById("errormsg")
+      const yearselect = document.getElementById("year-select")
+      const monthselect = document.getElementById("month-select")
+      const dayselect = document.getElementById("day-select")
+
+      // 연도 동적 생성
+      const startYear = 1910
+      const endYear = new Date().getFullYear()
+      for (let year = startYear; year <= endYear; year++) {
+        const option = document.createElement("option")
+        option.value = year
+        option.textContent = `${year}년`
+        yearselect.appendChild(option)
+      }
+
+      // 월 동적 생성
+      for (let month = 1; month <= 12; month++) {
+        const option = document.createElement("option")
+        option.value = month.toString().padStart(2, "0")
+        option.textContent = `${month}월`
+        monthselect.appendChild(option)
+      }
+
+      // 월별 일수 동적 생성
+      monthselect.addEventListener("change", () => {
+        const selectedYear = yearselect.value
+        const selectedMonth = monthselect.value
+        const daysInMonth = new Date(selectedYear, selectedMonth, 0).getDate()
+
+        dayselect.innerHTML = '<option value="" selected disabled>일</option>'
+        for (let day = 1; day <= daysInMonth; day++) {
+          const option = document.createElement("option")
+          option.value = day.toString().padStart(2, "0")
+          option.textContent = `${day}일`
+          dayselect.appendChild(option)
+        }
+      })
+
+      // 확인 버튼 클릭 이벤트
+      signupbtn.addEventListener("click", () => {
+        if (!nickname.value) {
+          errormsg.textContent = "닉네임을 입력해주세요"
+          errormsg.style.display = "block"
+          errormsg.style.color = "red"
+          return
+        }
+
+        const year = yearselect.value
+        const month = monthselect.value
+        const day = dayselect.value
+
+        if (!year || !month || !day) {
+          errormsg.textContent = "생년월일을 모두 선택해주세요"
+          errormsg.style.display = "block"
+          errormsg.style.color = "red"
+          return
+        }
+
+        const selectgender = document.querySelector(
+          'input[name="gender"]:checked'
+        )
+        if (!selectgender) {
+          errormsg.textContent = "성별을 선택해주세요"
+          errormsg.style.display = "block"
+          errormsg.style.color = "red"
+          return
+        }
+
+        const gender = selectgender.value
+        const birth = `${year}-${month}-${day}`
+        const email = JSON.parse(localStorage.getItem("email"))
+        const phoneNumber = JSON.parse(localStorage.getItem("phoneNumber"))
+        const pw = JSON.parse(localStorage.getItem("pw"))
+        const profileData = {
+          email,
+          phoneNumber,
+          pw,
+          nickname: nickname.value,
+          birth,
+          gender,
+        }
+        const profile = JSON.parse(localStorage.getItem("profile")) || []
+        profile.push(profileData)
+        localStorage.setItem("profile", JSON.stringify(profile))
+        location.href = "./success.html"
+      })
+    </script>
+  </body>
+</html>

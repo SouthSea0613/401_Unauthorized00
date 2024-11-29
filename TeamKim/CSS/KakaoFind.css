@@ -1,0 +1,88 @@
+#main {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+#Ktext {
+  position: absolute;
+}
+
+div.border {
+  margin: 100px;
+  width: 600px;
+  height: 700px;
+  border: 1px solid rgb(228, 228, 228);
+}
+
+#find_info {
+  text-align: left;
+  margin: 80px 0px 0px 50px;
+}
+
+.find {
+  font-size: 12px;
+  color: rgb(100, 100, 100);
+}
+
+li#confirm {
+  list-style: none;
+  text-align: left;
+  margin: 10px 0px 10px 10px;
+}
+
+li#finda {
+  font-size: 12px;
+  color: rgb(100, 100, 100);
+  text-align: center;
+  list-style: none;
+  margin: 30px 0px 10px -30px;
+}
+
+p.find_email {
+  margin: 30px 0px 20px 50px;
+  text-align: left;
+}
+
+p.p2 {
+  margin: 40px 0px 20px 50px;
+  text-align: left;
+}
+
+input.find_id {
+  width: 500px;
+  height: 50px;
+  font-size: 18px;
+  position: left;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+button.btn1 {
+  background-color: rgb(239, 239, 239);
+  width: 500px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+button.btn2 {
+  background-color: rgba(254, 229, 9, 0.915);
+  width: 500px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 60px;
+}
+
+#footer {
+  font-size: 12px;
+  color: rgb(100, 100, 100);
+  display: flex;
+  justify-content: center;
+}

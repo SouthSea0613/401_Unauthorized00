@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/signup_auth.css" />
+  </head>
+  <body>
+    <nav class="logo_nav">
+        <div class="logo">
+          <span id="logo_span">kakao</span>
+        </div>
+      </nav>
+      <section class="signup_section">
+      <div class="signup_div">
+        <div class="content">
+       
+        <p id="">이메일로 발송된 <br>인증번호를 입력해 주세요</p>
+        <div class="">
+        <input type="text" name="" id="email" disabled />
+    </div>
+    <div class="">
+        <input type="text" name="" id="auth" placeholder="인증번호 8자 입력" />
+        <p id="error"></p>
+    </div>
+        <div class="question_div">
+        <p id="question">인증 메일을 받지 못하셨나요?</p>
+    </div>
+        <div class="nextbtn">
+            
+        <input type="button" id="next" value="다음" />
+    </div>
+      </div>
+    </div>
+    </div>
+</section>
+    <script src="./js/logo.js"></script>
+    <script>
+      const emailinput = document.getElementById("auth")
+      const btn = document.getElementById("next")
+      const errorp = document.getElementById('error');
+      btn.addEventListener("click", function () {
+        if (emailinput.value == 1234) {
+          location.href = "./signup_pw.html"
+        }else{
+            errorp.textContent="인증번호가 일치하지않습니다"
+            errorp.style.color="red"
+        }   
+      })
+      window.onload = () => {
+        const email = localStorage.getItem("email")
+        console.log(email)
+        document.getElementById("email").value = email
+      }
+    </script>
+  </body>
+</html>

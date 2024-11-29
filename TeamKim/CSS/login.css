@@ -1,0 +1,105 @@
+input#userId {
+    margin: 50px 0px 0px 0px;
+    width: 300px;
+    max-width: 300px;
+    height: 20px;
+    font-size: 12px;
+    padding: 5px;
+    border: none;
+    border-bottom: 2px solid #c9c9ca;
+  }
+  input#userPw {
+    margin: 10px;
+    width: 100%; 
+    max-width: 300px; 
+    height: 20px; 
+    font-size: 12px; 
+    padding: 5px; 
+    border: none;
+    border-bottom: 2px solid #c9c9ca;
+  }
+  #errmsg {
+          font-size: 12px;
+          margin:auto;
+          width: 300px;
+          height: 50px;
+          padding: 10px;
+          display:none;
+      }
+  body {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  #logo {
+    font-size: 40px;
+    position: absolute;
+    margin: 10px ;
+  }
+  #login1 {
+    margin: 70px;
+    width: 600px;
+    height: 550px;
+    border-width: 10px 10px 10px 10px;
+    border: solid #c9c9ca;
+  }
+  #btn {
+    margin: 20px;
+    width: 300px;
+    height: 50px;
+    background-color: rgba(254, 229, 9, 0.915);
+    padding: center;
+    border: none;
+  }
+    #btn1 {
+    margin: 20px 0px 0px 0px;
+    width: 300px;
+    height: 50px;
+    background-color: #c9c9ca;
+    padding: center;
+    border: none;
+  }
+  .help-icon {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background-color: #bbbbbb;
+        border-radius: 50%;
+        color: white;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+      }
+  .help-icon:hover {
+        background-color: #373738;
+      }
+      .tooltip {
+        display: none; 
+        position: absolute;
+        top: 30px;
+        left: -20px;
+        background-color: #333;
+        color: #fff;
+        padding: 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        white-space: nowrap;
+        z-index: 10;
+      }
+      .tooltip::after {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 20px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent #333 transparent;
+      }
+      .help-icon:hover .tooltip {
+        display: block;
+      }
+      a{
+          text-decoration-line: none;
+      }

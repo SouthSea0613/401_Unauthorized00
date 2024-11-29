@@ -1,0 +1,268 @@
+body {
+  margin: 10px 50px;
+  height: 100vh;
+  background-color: rgb(240, 242, 255);
+}
+/* search */
+#sech {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  /* background-color: white; */
+}
+
+#search {
+  width: 345px;
+  height: 35px;
+  font-size: 20px;
+  font-weight: 600;
+  outline: none;
+  border: none;
+}
+
+.keybord {
+  width: 40px;
+}
+
+.search {
+  width: 20px;
+}
+
+.logo {
+  width: 45px;
+}
+
+#sercenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#serc {
+  padding: 2px;
+  width: 500px;
+  height: 45px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  /* border: 2px solid; */
+  outline: 1px solid transparent;
+  background-image: linear-gradient(#fff, #fff), linear-gradient(135deg, #7268ff 60%, #ff9a48, #fff348);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  /* background-color: white; */
+}
+
+#serc img {
+  margin: 5px;
+}
+
+/* list */
+div #list1 {
+  overflow: left;
+}
+ul {
+  display: flex;
+  list-style-type: none;
+}
+
+li > img {
+  width: 20px;
+  height: 20px;
+  margin: 3px;
+  background-color: white;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  margin: 5px;
+  width: 60px;
+  height: 20px;
+  border-radius: 50px;
+  font-size: 12px;
+  background-color: white;
+  box-shadow: 1px 2px 3px 0px gray;
+  text-align: center;
+}
+
+ul #hide {
+  width: 25px;
+}
+/* main */
+/* #mainbody를 화면 중앙에 수직, 수평으로 정렬 */
+#mainbody {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* #mainMenu 내부에 뉴스들을 정렬 */
+#mainMenu {
+  display: flex;
+  /* flex-wrap: wrap; 자식 요소들을 여러 줄로 감싸서 배치 */
+  /* justify-content: center; 자식 요소들을 수평 중앙 정렬 */
+  /* gap: 20px; 자식 요소들 간 간격 추가 */
+}
+
+/* newsAll */
+#newsAll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 730px;
+}
+
+#news1 {
+  width: 730px;
+  height: 360px;
+  margin: 10px 20px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 1px 2px 3px 0px gray;
+}
+#news2 {
+  width: 730px;
+  height: 260px;
+  margin: 5px 20px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 1px 2px 3px 0px gray;
+}
+#news3 {
+  width: 730px;
+  height: 360px;
+  margin: 5px 20px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 1px 2px 3px 0px gray;
+}
+#news4 {
+  width: 730px;
+  height: 480px;
+  margin: 5px 20px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 1px 2px 3px 0px gray;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.item div {
+  margin: 10px;
+  width: 730px;
+  height: 40px;
+  border-radius: 15px;
+}
+
+#news1 div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#news2 div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#news3 div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#news4 div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* subscroll */
+
+.scItem {
+  margin: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  width: 280px;
+  height: 150px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 1px 2px 3px 0px gray;
+}
+
+/* login & logout */
+#logMenu {
+  margin: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 280px;
+  height: 100px;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 1px 2px 3px 0px gray;
+}
+
+#logtxt {
+  margin: 5px;
+  color: gray;
+  font-size: 12px;
+}
+
+#logout {
+  margin: auto 0;
+  float: right;
+  border: none;
+  border: 1px solid lightgray;
+  width: 80px;
+  height: 30px;
+  border-radius: 50px;
+  background-color: white;
+  color: gray;
+  display: none;
+}
+
+#login {
+  margin: 15px auto;
+  border: none;
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 550;
+  width: 250px;
+  height: 40px;
+  background-color: #ffe926;
+}
+
+#profile {
+  display: none;
+  margin: 10px 10px;
+}
+
+#proimg {
+  background-color: lightgray;
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+}
+
+#profile p {
+  font-size: 20px;
+  margin: 15px 0;
+  margin-left: 10px;
+}

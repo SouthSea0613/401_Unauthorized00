@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./CSS/signup.css" />
+  </head>
+  <body>
+    <nav class="logo_nav">
+        <div class="logo">
+            <span id="logo_span">kakao</span>
+          </div>
+    </nav>
+    <section class="signup_section">
+       
+        <div class="signup_div">
+        <div class="content">
+          <p>카카오계정 <br />서비스 약관에 동의해주세요</p>
+          <input type="checkbox" name="" id="all_check" />
+          <label for="all_check">모두 동의합니다</label>
+          <p id="explain">
+            전체 동의는 필수 및 선택정보에 대한 동의도 포함되어 있으며,
+            개별적으로도 동의를 선택하실 수 있습니다. 선택항목에 대한 동의를
+            거부하시는 경우에도 서비스는 이용이 가능합니다.
+          </p>
+          <hr class="" />
+          <ul class="">
+            
+        <li class="chk_li">
+          <input type="checkbox" id="age" class="chk required" />
+          <label for="age">만 14세 이상입니다.</label>
+        </li>
+        <li class="chk_li">
+          <input type="checkbox" id="clause" class="chk required" />
+          <label for="clause">[필수] 카카오계정 약관</label>
+        </li>
+        <li class="chk_li">
+          <input type="checkbox" id="p_info" class="chk required" />
+          <label for="p_info">[필수] 개인정보 수집 및 이용 동의</label>
+
+          </li>
+          <li class="chk_li">
+          <input type="checkbox" id="profile" class="chk" /> 
+          <label for="profile">[선택] 프로필정보 추가 수집 동의</label>
+          </li>
+        </ul>
+          <button disabled>동의하기</button>
+        </div>
+    </div>
+      </div>
+    </section>
+    <script>
+      let allcheck = document.getElementById("all_check") // 전체 동의 체크박스
+      let allagr = document.querySelectorAll(".chk") // 모든 체크박스
+      let requiredChecks = document.querySelectorAll(".required") // 필수 체크박스
+      let agrbtn = document.querySelector("button") // 버튼
+
+      // 전체 동의 클릭 시 필수 체크박스만 상태 동기화
+      allcheck.addEventListener("click", function () {
+        requiredChecks.forEach((check) => {
+          check.checked = allcheck.checked // 필수 체크박스 동기화
+        })
+        allagr.forEach((check) => {
+          if (!check.classList.contains("required")) {
+            check.checked = allcheck.checked // 선택 체크박스도 동기화
+          }
+        })
+        agrbtn.disabled = !Array.from(requiredChecks).every(
+          (chk) => chk.checked
+        ) // 필수 체크 확인 후 버튼 활성화
+      })
+
+      // 개별 체크박스 클릭 시 전체 동의 체크 여부 확인
+      allagr.forEach((check) => {
+        check.addEventListener("click", function () {
+          // 필수 항목 기준으로 전체 동의 상태 설정
+          allcheck.checked = Array.from(requiredChecks).every(
+            (chk) => chk.checked
+          )
+          // 필수 체크박스 상태에 따라 버튼 활성화
+          agrbtn.disabled = !Array.from(requiredChecks).every(
+            (chk) => chk.checked
+          )
+        })
+      })
+      agrbtn.addEventListener('click',function(){
+        location.href='signup_email.html'
+      })
+    </script>
+    <script src="./js/logo.js"></script>
+  </body>
+</html>

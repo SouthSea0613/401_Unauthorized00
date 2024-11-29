@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main</title>
+    <link rel="stylesheet" href="./CSS/main.css" />
+  </head>
+  <body>
+    <div id="sech">
+      <div>
+        <div id="sercenter">
+          <div id="serc">
+            <img class="logo" src="./img/logo_daum.png" alt="다음 로고" />
+            <input type="text" name="search" id="search" />
+            <img class="keybord" src="./img/keybord.png" alt="키보드 아이콘" />
+            <img class="search" src="./img/search.png" alt="돋보기 아이콘" />
+          </div>
+        </div>
+        <div id="list1">
+          <ul>
+            <li><img src="./img/map.webp" alt="." />지도</li>
+            <li><img src="./img/gold.webp" alt="." />금융</li>
+            <li><img src="./img/mail.webp" alt="." />메일</li>
+            <li><img src="./img/weather.webp" alt="." />날씨</li>
+            <li><img src="./img/sport.webp" alt="." />스포츠</li>
+            <li><img src="./img/cafe.webp" alt="." />카페</li>
+            <li><img src="./img/game.webp" alt="." />게임</li>
+            <li><img src="./img/weptoon.webp" alt="." />웹툰</li>
+            <li><img src="./img/dictionary.webp" alt="." />사전</li>
+            <li><img src="./img/shopping.webp" alt="." />쇼핑</li>
+            <li id="hide">...</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="mainbody">
+      <div id="mainMenu">
+        <div id="newsAll">
+          <div id="news1">
+            <div class="item">
+              <div>대충 여기 뉴스 목록 뜸</div>
+              <div>대충 여기 뉴스 목록 뜸</div>
+              <div>대충 여기 뉴스 목록 뜸</div>
+              <div>대충 여기 뉴스 목록 뜸</div>
+            </div>
+          </div>
+          <div id="news2">
+            <div class="item">
+              <div>대충 여기 뉴스 목록 뜸</div>
+              <div>대충 여기 뉴스 목록 뜸</div>
+              <div>대충 여기 뉴스 목록 뜸</div>
+              <div>대충 여기 뉴스 목록 뜸</div>
+            </div>
+          </div>
+          <div id="news3">
+            <div class="item">
+              <div>대충 여기 뉴스 목록 뜸</div>
+              <div>대충 여기 뉴스 목록 뜸</div>
+              <div>대충 여기 뉴스 목록 뜸</div>
+              <div>대충 여기 뉴스 목록 뜸</div>
+            </div>
+          </div>
+          <div id="news4">
+            <div class="item">
+              <div>대충 여기 뉴스 목록 뜸</div>
+              <div>대충 여기 뉴스 목록 뜸</div>
+              <div>대충 여기 뉴스 목록 뜸</div>
+              <div>대충 여기 뉴스 목록 뜸</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="subbody">
+        <div id="subMenu">
+          <div>
+            <div id="logMenu">
+              <button id="logout" onclick="logout()">로그아웃</button>
+              <div id="profile">
+                <img src="./img/user.png" alt="프로필" id="proimg" />
+                <p id="nickname"></p>
+              </div>
+              <div id="logtxt">이제 카카오계정으로 Daum을 이용해주세요.</div>
+              <button id="login" onclick="login()">
+                카카오계정으로 로그인
+              </button>
+            </div>
+            <div id="subscroll">
+              <div class="scItem">여긴 날씨인디?</div>
+              <div class="scItem">여긴 텅 비었는디?</div>
+              <div class="scItem">여긴 증권인디?</div>
+              <div class="scItem">여긴 쇼츠인디?</div>
+              <div class="scItem">여긴 게임인디?</div>
+              <div class="scItem">여긴 후원인디?</div>
+              <div class="scItem">여긴 랭킹인디?</div>
+              <div class="scItem">여긴 포토인디?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginButton = document.getElementById("login")
+        const logoutButton = document.getElementById("logout")
+        const profileSection = document.getElementById("profile")
+        const logTxt = document.getElementById("logtxt")
+        const nicknameElement = document.getElementById("nickname")
+
+        // 로그인 상태 초기화
+        initializeLoginState()
+
+        // 로그아웃 함수
+        window.logout = function () {
+          localStorage.removeItem("loginData") //로그인데이터 삭제
+
+          // UI 초기화
+          profileSection.style.display = "none"
+          logoutButton.style.display = "none"
+          logTxt.style.display = "block"
+          loginButton.style.display = "block"
+          document.getElementById("logMenu").style.height = "100px"
+
+          console.log(
+            "로그아웃 성공: 사용자 정보가 loginData에서 삭제되었습니다."
+          )
+        }
+
+        // 로그인 상태 초기화 함수
+        function initializeLoginState() {
+          const loginData = localStorage.getItem("loginData")
+          if (loginData) {
+            const user = JSON.parse(loginData)
+            updateUIForLoggedInUser(user)
+          } else {
+            updateUIForLoggedOutUser()
+          }
+        }
+
+        // 로그인 상태일 때 UI 업데이트
+        function updateUIForLoggedInUser(user) {
+          loginButton.style.display = "none"
+          logTxt.style.display = "none"
+          logoutButton.style.display = "block"
+          profileSection.style.display = "flex"
+          document.getElementById("logMenu").style.height = "160px"
+
+          nicknameElement.textContent = `${user.nickname}님`
+          document.getElementById("proimg").src = user.profileImage || '' // 프로필 이미지 설정
+          console.log("로그인 상태: ", user)
+        }
+
+        // 로그아웃 상태일 때 UI 업데이트
+        function updateUIForLoggedOutUser() {
+          profileSection.style.display = "none"
+          logoutButton.style.display = "none"
+          logTxt.style.display = "block"
+          loginButton.style.display = "block"
+          document.getElementById("logMenu").style.height = 100 + "px"
+          console.log("로그아웃 상태: 초기화되었습니다.")
+        }
+      })
+      function login() {
+        console.log("code1")
+        document.getElementById("login").style.display = "none"
+        document.getElementById("logtxt").style.display = "none"
+        document.getElementById("logout").style.display = "block"
+        document.getElementById("profile").style.display = "flex"
+        document.getElementById("logMenu").style.height = 160 + "px"
+        location.href = "./login.html" // 맨 마지막
+      }
+      // // 로그아웃
+      // function logout() {
+      //   document.getElementById("profile").style.display = "none"
+      //   document.getElementById("logout").style.display = "none"
+      //   document.getElementById("logtxt").style.display = "block"
+      //   document.getElementById("login").style.display = "block"
+      //   document.getElementById("logMenu").style.height = 140 + "px"
+      //   localStorage.removeItem("loginData")
+      //   console.log("로그아웃 성공: 사용자 정보가 loginData에서 삭제되었습니다.")
+      // }
+
+      // 4. 로그인 상태 확인
+      function checkLoginStatus() {
+        const loginData = localStorage.getItem("loginData")
+
+        if (loginData) {
+          const user = JSON.parse(loginData)
+          console.log("로그인 상태:", user)
+          return true
+        } else {
+          console.log("로그인되지 않았습니다.")
+          return false
+        }
+      }
+      // 브라우저 종료 시 자동 로그아웃
+      window.addEventListener("unload", function () {
+        localStorage.removeItem("loginData")
+        console.log("브라우저 종료: 자동 로그아웃 처리되었습니다.")
+      })
+    </script>
+  </body>
+</html>
