@@ -77,7 +77,7 @@
             <div id="logMenu">
               <button id="logout" onclick="logout()">로그아웃</button>
               <div id="profile">
-                <img src="./img/user.png" alt="프로필" id="proimg" />
+                <img src="" alt="프로필" id="proimg" />
                 <p id="nickname"></p>
               </div>
               <div id="logtxt">이제 카카오계정으로 Daum을 이용해주세요.</div>
@@ -146,7 +146,7 @@
           document.getElementById("logMenu").style.height = "160px"
 
           nicknameElement.textContent = `${user.nickname}님`
-          document.getElementById("proimg").src = user.profileImage || '' // 프로필 이미지 설정
+          document.getElementById("proimg").src = user.profileImage || "" // 프로필 이미지 설정
           console.log("로그인 상태: ", user)
         }
 

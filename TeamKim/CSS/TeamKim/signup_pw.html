@@ -49,40 +49,40 @@
     </section>
     <script src="./js/logo.js"></script>
     <script>
-      let inputpw = document.getElementById('input_pw');
-      let auth_pw = document.getElementById('auth_pw');
-      let errormsg = document.getElementById('errormsg');
-      let button = document.querySelector('button');
-      let emailp = document.getElementById('email');
+      let inputpw = document.getElementById("input_pw")
+      let auth_pw = document.getElementById("auth_pw")
+      let errormsg = document.getElementById("errormsg")
+      let button = document.querySelector("button")
+      let emailp = document.getElementById("email")
 
-      emailp.innerText = localStorage.getItem('email').split('"')[1];
-      inputpw.addEventListener('input', function () {
-        if (inputpw.value.length < 8 || inputpw.value.length > 12) { // inputpw.value.length > 8 && inputpw.value.length < 12
-          errormsg.textContent = '비밀번호는 8자리~12자리입니다';
-          errormsg.style.display = 'block';
-          errormsg.style.color = 'red';
+      emailp.innerText = localStorage.getItem("email").split('"')[1]
+      inputpw.addEventListener("input", function () {
+        if (inputpw.value.length < 8 && inputpw.value.length > 12) {
+          errormsg.textContent = "비밀번호는 8자리~12자리입니다"
+          errormsg.style.display = "block"
+          errormsg.style.color = "red"
         }
-      });
+      })
 
-      button.addEventListener('click', function () {
-        console.log(inputpw.value);
+      button.addEventListener("click", function () {
+        console.log(inputpw.value)
         if (
           inputpw.value == auth_pw.value &&
-          (inputpw.value.length >= 8 &&
-          inputpw.value.length <= 12)
+          inputpw.value != false &&
+          auth_pw.value != false
         ) {
-          localStorage.setItem('pw', JSON.stringify(inputpw.value));
-          location.href = './signup_profile.html';
-        } else if (inputpw.value == '' && auth_pw.value == '') {
-          errormsg.textContent = '비밀번호를 입력해주세요';
-          errormsg.style.display = 'block';
-          errormsg.style.color = 'red';
+          localStorage.setItem("pw", JSON.stringify(inputpw.value))
+          location.href = "./signup_profile.html"
+        } else if (inputpw.value == "" && auth_pw.value == "") {
+          errormsg.textContent = "비밀번호를 입력해주세요"
+          errormsg.style.display = "block"
+          errormsg.style.color = "red"
         } else {
-          errormsg.textContent = '비밀번호를 확인해주세요';
-          errormsg.style.display = 'block';
-          errormsg.style.color = 'red';
+          errormsg.textContent = "비밀번호를 확인해주세요"
+          errormsg.style.display = "block"
+          errormsg.style.color = "red"
         }
-      });
+      })
     </script>
   </body>
 </html>

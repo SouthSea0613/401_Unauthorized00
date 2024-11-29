@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>카카오계정</title>
+    <link
+    rel="icon"
+    href="./img/kakao.png"
+    type="image/x-icon"
+  />
+    <link
+    rel="icon"
+    href="./img/kakao.png"
+    type="image/x-icon"
+  />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="./CSS/login.css" />
+    <!-- <script src="./dummy.js"></script> -->
+  </head>
+  <body>
+    <h1 id="logo">kakao</h1>
+    <div id="login1">
+      <input
+        id="userId"
+        placeholder="카카오메일 아이디, 이메일"
+        name="userId"
+        type="text"
+      />
+      <br />
+      <input id="userPw" placeholder="비밀번호" name="userPw" type="password" />
+      <br />
+      <input id="auto" type="checkbox" />
+      <label for="auto" style="font-size: 14px;">간편로그인 정보 저장</label> 
+      <div class="help-icon">
+        !
+        <div class="tooltip">
+            로그인한 계정의 정보가 저장됩니다. 개인정보 보호를 위해 개인 기기에서만 사용해 주세요.
+        </div>
+    </div>
+      <div id="errmsg"></div><br>
+      <button id="btn">로그인</button>
+      <br>또는<br>
+      <button id="btn1">QR코드 로그인</button> <br>
+      <br>
+      <a href="./signup_main.html" style="font-size: 13px;">회원가입</a>
+      <a href="./PreFindId.html" style="font-size: 13px;">계정찾기</a>
+      <a href="./Find_pw.html" style="font-size: 13px;">비밀번호 재설정</a>
+      <script>
+              $('#btn').click(function () {
+          let $id = $('#userId').val().trim(); // 이메일 입력값
+          let $pw = $('#userPw').val().trim(); // 비밀번호 입력값
+          const $errmsg = $('#errmsg'); // 에러 메시지 출력 영역     
+          const regEmail =
+            /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+          // 입력값 검증
+          if (!$id) {
+            $errmsg
+              .text('카카오 계정을 입력해 주세요.')
+              .css({ display: 'block', backgroundColor: '#f5f5fc', color: 'red' });
+            return;
+          }
+          if (!regEmail.test($id)) {
+            $errmsg
+              .text('이메일 형식에 따라 정확히 입력해주세요.')
+              .css({ display: 'block', backgroundColor: '#f5f5fc', color: 'red' });
+            return;
+          }
+          if (!$pw) {
+            $errmsg
+              .text('비밀번호를 입력해 주세요.')
+              .css({ display: 'block', backgroundColor: '#f5f5fc', color: 'red' });
+            return;
+          }
+          if ($pw.length < 8 || $pw.length > 12) { // 비밀번호 길이 조건 수정
+            $errmsg
+              .text('비밀번호는 8~12자 사이여야 합니다.')
+              .css({ display: 'block', backgroundColor: '#f5f5fc', color: 'red' });
+            return;
+          }
+
+          // profile 데이터 배열 가져오기
+          const profile = JSON.parse(localStorage.getItem("profile")) || [];
+          const user = profile.find(user => user.email === $id && user.pw === $pw);
+
+          // 사용자 검증
+          if (!user) {
+            const isEmailExists = profile.some(user => user.email === $id);
+
+            if (!isEmailExists) {
+              $errmsg
+                .text('등록되지 않은 계정입니다.')
+                .css({ display: 'block', backgroundColor: '#f5f5fc', color: 'red' });
+            } else {
+              $errmsg
+                .text('이메일 또는 비밀번호가 잘못되었습니다.')
+                .css({ display: 'block', backgroundColor: '#f5f5fc', color: 'red' });
+            }
+            return;
+          }
+
+          // 로그인 성공 처리
+          localStorage.setItem('loginData', JSON.stringify(user)); // 로그인 데이터 저장
+          console.log('로그인성공');
+          setTimeout(function () {
+            window.location.href = './main.html'; // 이동할 페이지 경로 설정
+          }, );
+        });
+        
+       </script> 
+    </span>
+  </body>
+</html>
