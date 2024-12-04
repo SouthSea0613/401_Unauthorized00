@@ -65,7 +65,7 @@ function setclick() {
         document.getElementById("pwset").focus();
         return;
     }
-    else if (pwcheck !== pwset) {
+    else if (document.getElementById("pwsetcheck").value !== pwset) {
         alert("비밀번호가 일치하지 않습니다");
         document.getElementById("pwset").focus();
         return;
